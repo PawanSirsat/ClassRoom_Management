@@ -162,7 +162,7 @@ button{
 </script>
 
 	<div class="welcome" style="position: fixed; top: 80px; left: 0;">
-		<h1>Welcome to the Coding Challenge !!!</h1>
+		<h1>Welcome to the Coding Challenge !!</h1>
 	</div>
 
 	<div class="char">
