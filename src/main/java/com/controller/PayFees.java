@@ -28,9 +28,10 @@ public class PayFees extends HttpServlet
 			int amountInt = Integer.parseInt(amount);
 
 			pdao = new PaymentDao(JDBC.getConnection());
-			boolean check = pdao.makePayment(amountInt,loggedInStudentId);
-			
-			if (check)
+			boolean check1 = pdao.makePayment(amountInt,loggedInStudentId);
+			boolean check2 = pdao.maketransaction(amountInt,loggedInStudentId);
+
+			if (check1)
 			{
 				request.getRequestDispatcher("index.jsp").forward(request, response);
 			} else

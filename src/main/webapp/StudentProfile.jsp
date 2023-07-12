@@ -130,7 +130,7 @@ body {
 	color: white;
 	border: none;
 	padding: 10px 20px;
-	margin-left:5px;
+	margin-left: 5px;
 	font-size: 16px;
 	border-radius: 5px;
 	cursor: pointer;
@@ -141,7 +141,7 @@ body {
 	color: white;
 	border: none;
 	padding: 10px 20px;
-	margin-left:5px;
+	margin-left: 5px;
 	font-size: 16px;
 	border-radius: 5px;
 	cursor: pointer;
@@ -240,19 +240,21 @@ body {
 							Profile</strong>
 					</button>
 				</form>
+				<form action="studentTransaction" method="get">
+					<input type="hidden" name="stdid"
+						value="<%=session.getAttribute("studentId")%>">
+					<button class="edit-button" type="submit">
+						<i class="fas fa-list"></i>&nbsp;&nbsp;<strong>Transactions
+						</strong>
+					</button>
+				</form>
 			</div>
-
-	
-
-
 
 			<div class="additional-info">
 				<p>
 					<i class="fas fa-university info-icon"></i> Batch Name:
 					<%=session.getAttribute("batchName")%></p>
-				<p>
-					<i class="fas fa-id-card info-icon"></i> Batch ID:
-					<%=session.getAttribute("batchId")%></p>
+
 				<p>
 					<i class="fas fa-book info-icon"></i> Course:
 					<%=session.getAttribute("batchcourse")%></p>

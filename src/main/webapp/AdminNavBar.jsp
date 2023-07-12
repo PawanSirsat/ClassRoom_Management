@@ -13,7 +13,8 @@
 .message-button {
 	text-decoration: none;
 	padding: 9px 13px;
-	margin: 10px; color : #036ffc;
+	margin: 10px;
+	color: #036ffc;
 	border: none;
 	text-decoration: none;
 	cursor: pointer;
@@ -38,7 +39,7 @@
 
 .assignment-button {
 	text-decoration: none;
-	padding: 9px 13px;
+	padding: 9px 9px;
 	color: #f79320;
 	border: none;
 	text-decoration: none;
@@ -51,7 +52,7 @@
 
 .list-button {
 	text-decoration: none;
-	padding: 9px 13px;
+	padding: 9px 9px;
 	color: #04b2d1;
 	border: none;
 	text-decoration: none;
@@ -64,14 +65,15 @@
 
 .signout-button {
 	text-decoration: none;
-	padding: 10px 9px;
+	padding: 9px 9px;
 	color: red;
 	border: none;
 	text-decoration: none;
 	cursor: pointer;
 	font-weight: bold;
 	border-radius: 25px;
-	margin-left: 70px;
+		margin-left: 10px;
+	
 }
 
 .navbar-brand {
@@ -180,7 +182,6 @@
 								<i class="fa-solid fa-plus"></i>Add Faculty
 							</button>
 					</a></li>
-
 					<li class="nav-item">
 						<form action="facultyname" method="get">
 							<input type="hidden" name="callingPage" value="faculty2">
@@ -189,7 +190,13 @@
 							</button>
 						</form>
 					</li>
-
+					<li class="nav-item">
+						<form action="allTransaction" method="get">
+							<button class="list-button" type="submit">
+								<i class="fa fa-list"></i>&nbsp;&nbsp;All Transactions
+							</button>
+						</form>
+					</li>
 					<li class="nav-item">
 						<form action="allbatchname" method="get">
 							<input type="hidden" name="callingPage" value="page3">

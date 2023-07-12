@@ -158,4 +158,21 @@ public class PaymentDao
 		}
 		return false;
 	}
+	
+	public boolean maketransaction(int amount, int userid)
+	{
+        String insertData = "INSERT INTO Transaction (user_id, payment_amount, transaction_date) VALUES (?, ?, CURRENT_TIMESTAMP)";
+		try
+		{
+			PreparedStatement pstmt = con.prepareStatement(insertData);
+			pstmt.setInt(1, userid);
+            pstmt.setDouble(2, amount);
+			return pstmt.executeUpdate() > 0;
+
+		} catch (Exception e)
+		{
+			// TODO: handle exception
+		}
+		return false;
+	}
 }

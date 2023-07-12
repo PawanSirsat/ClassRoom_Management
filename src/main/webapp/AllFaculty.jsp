@@ -21,7 +21,7 @@ body {
 
 .container {
 	position:absolute;
-	top:100px;
+	top: 150px;
 	left:200px;
   max-width: 800px;
   margin: 0 auto;

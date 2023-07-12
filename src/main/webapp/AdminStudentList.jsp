@@ -82,8 +82,6 @@ h2 {
 			<th>Username</th>
 			<th>Password</th>
 			<th>Mobile</th>
-			<th>City</th>
-			<th>Age</th>
 			<th>Course</th>
 			<th>Photo</th>
 			<th>Edit</th>
@@ -108,8 +106,6 @@ h2 {
 				<td>${user.username}</td>
 				<td>${user.password}</td>
 				<td>${user.phone}</td>
-				<td>${user.city}</td>
-				<td>${user.age}</td>
 				<td>${user.course}</td>
 				<td><c:choose>
 

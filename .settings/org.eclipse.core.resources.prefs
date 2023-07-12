@@ -1,4 +1,6 @@
 eclipse.preferences.version=1
 encoding//src/main/webapp/AdminProfile.jsp=UTF-8
+encoding//src/main/webapp/AllTransaction.jsp=UTF-8
 encoding//src/main/webapp/StudentProfile.jsp=UTF-8
+encoding//src/main/webapp/transactionDetails.jsp=UTF-8
 encoding/<project>=windows-1252

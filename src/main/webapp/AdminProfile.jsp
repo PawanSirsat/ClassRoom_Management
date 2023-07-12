@@ -70,9 +70,9 @@ body {
 .profile-info1 {
 	display: inline-block;
 	position: relative;
-	margin-top: 192px;
+	margin-top: 205px;
 	margin-left: 17px;
-	padding: 40px;
+	padding-left: 25px;
 	background-color: #ffffff;
 	border-radius: 10px;
 	position: relative;
@@ -226,7 +226,7 @@ th {
 }
 
 .boldword {
-	padding-top: 5px;
+	padding-top: 18px;
 	color: #0F7CBB;
 	font-weight: bold;
 }

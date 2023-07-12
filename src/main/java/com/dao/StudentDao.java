@@ -33,6 +33,7 @@ public class StudentDao
 			String insertData = "INSERT INTO user (email,password,username,fullname,phone,city,age,course,img) VALUES (?,?,?,?,?,?,?,?,?)";
 			PreparedStatement pstmt = con.prepareStatement(insertData);
 
+			
 			pstmt.setString(1, users.getEmail());
 			pstmt.setString(2, users.getPassword());
 			pstmt.setString(3, users.getUsername());
