@@ -33,9 +33,10 @@ public class Encrypt
 						i = j;
 						j = ch.length;
 					}
+					
 				}
-
 			}
+			System.out.print(" ");
 		}
 		return strfinal;
 	}

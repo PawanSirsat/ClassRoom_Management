@@ -65,7 +65,6 @@ body {
 	border-radius: 10px;
 	position: relative;
 	box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.80);
-	
 }
 
 .profile-info1 {
@@ -76,7 +75,7 @@ body {
 	padding: 40px;
 	background-color: #ffffff;
 	border-radius: 10px;
-	position: relative;	
+	position: relative;
 }
 
 .profile-info h2 {
@@ -208,8 +207,8 @@ th {
 }
 
 .collected-fees {
-	padding-top: 10px; 
-	color : #4CAF50;
+	padding-top: 10px;
+	color: #4CAF50;
 	font-weight: bold;
 	color: #4CAF50;
 }
@@ -225,18 +224,20 @@ th {
 	color: #f0a00c;
 	font-weight: bold;
 }
-.boldword{
+
+.boldword {
 	padding-top: 5px;
 	color: #0F7CBB;
 	font-weight: bold;
 }
-  .cname{
-  color:#5c5c5b;
-      text-transform: uppercase;
-      font-weight: bold;
-      padding: 8px;
-      text-align: left;
-    }
+
+.cname {
+	color: #5c5c5b;
+	text-transform: uppercase;
+	font-weight: bold;
+	padding: 8px;
+	text-align: left;
+}
 </style>
 
 </head>
@@ -291,8 +292,7 @@ th {
 		<%
 		byte[] imageBytes = (byte[]) session.getAttribute("imageBytes");
 		String base64Image = null;
-		if (imageBytes != null)
-		{
+		if (imageBytes != null) {
 			base64Image = java.util.Base64.getEncoder().encodeToString(imageBytes);
 		}
 		%>
@@ -358,23 +358,44 @@ th {
 					<%-- Iterate through the courseFeesList attribute --%>
 					<c:forEach items="${courseFeesList}" var="courseFees">
 						<tr>
-							<td><strong class="cname">${courseFees.course_name}</strong></td>
-							<td><strong class="total-fees"> &#8377; ${courseFees.total_fees}</strong></td>
-							<td><strong class="collected-fees"> &#8377; ${courseFees.total_paidfees}</strong></td>
-							<td><strong class="pending-fees"> &#8377; ${courseFees.total_unpaidfees}</strong></td>
+							<td><strong class="cname ">${courseFees.course_name}</strong></td>
+							<td><strong class="total-fees formattedOutput">${courseFees.total_fees}</strong></td>
+							<td><strong class="collected-fees formattedOutput">
+									${courseFees.total_paidfees}</strong></td>
+							<td><strong class="pending-fees formattedOutput">
+									${courseFees.total_unpaidfees}</strong></td>
 						</tr>
 					</c:forEach>
 				</table>
 
-				<h3 class="collected-fees">
-					<strong class="boldword">Amount Collected : </strong> &#8377;
-					<%=session.getAttribute("totalcollected")%></h3>
-				<h3 class="pending-fees">
-					<strong class="boldword">Amount Pending&nbsp;&nbsp; : </strong> &#8377;
-					<%=session.getAttribute("totalpending")%></h3>
+				<h3 class="boldword">
+					Amount Collected : <strong class="collected-fees formattedOutput"><%=session.getAttribute("totalcollected")%></strong>
+				</h3>
+				<h3 class="boldword">
+					Amount Pending &nbsp;&nbsp;: <strong class="pending-fees formattedOutput"><%=session.getAttribute("totalpending")%></strong>
+				</h3>	
 			</div>
 		</div>
 	</div>
+	<script>
+	  function formatNumberWithCommas(number) {
+    	  return number.toLocaleString("en-IN");
+    	}
 
+    	function formatAmountsWithCommas() {
+    	  const formattedOutputElements = document.getElementsByClassName('formattedOutput');
+
+    	  for (let i = 0; i < formattedOutputElements.length; i++) {
+    	    const amount = formattedOutputElements[i].textContent;
+    	    const parsedAmount = parseFloat(amount.replace(/₹ /, '').replace(/,/g, ''));
+    	    const formattedAmount = formatNumberWithCommas(parsedAmount);
+
+    	    formattedOutputElements[i].innerHTML = '&#8377; ' + formattedAmount;
+    	  }
+    	}
+
+    	window.addEventListener('load', formatAmountsWithCommas);
+
+	 </script>
 </body>
 </html>

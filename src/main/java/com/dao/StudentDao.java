@@ -37,7 +37,7 @@ public class StudentDao
 			pstmt.setString(2, users.getPassword());
 			pstmt.setString(3, users.getUsername());
 			pstmt.setString(4, users.getFullName());
-			pstmt.setInt(5, users.getIntphone());
+			pstmt.setString(5, users.getPhone());
 			pstmt.setString(6, users.getCity());
 			pstmt.setInt(7, users.getIntage());
 			pstmt.setString(8, users.getCourse());
@@ -101,7 +101,7 @@ public class StudentDao
 	        statement.setString(2, user.getEmail());
 	        statement.setString(3, user.getFullName());
 	        statement.setString(4, user.getCity());
-	        statement.setInt(5, user.getIntphone());
+	        statement.setString(5, user.getPhone());
 	        statement.setInt(6, user.getIntage());
 	        statement.setString(7, user.getPassword());
 	        statement.setInt(8, user.getId());
@@ -371,7 +371,7 @@ public class StudentDao
 				std.setEmail(result.getString("email"));
 				std.setFullName(result.getString("fullname"));
 				std.setCity(result.getString("city"));
-				std.setIntphone(result.getInt("phone"));
+				std.setPhone(result.getString("phone"));
 				std.setIntage(result.getInt("age"));
 				std.setCourse(result.getString("course"));
 				

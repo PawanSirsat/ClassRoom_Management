@@ -42,8 +42,8 @@ h2 {
 }
 
 .collected-fees {
-	padding-top: 10px; 
-	color : #4CAF50;
+	padding-top: 10px;
+	color: #4CAF50;
 	font-weight: bold;
 	color: #4CAF50;
 }
@@ -97,14 +97,14 @@ h2 {
 
 				<td>${user.batchName}</td>
 				<td>${user.facultyName}</td>
-				<td><h5 class="collected-fees">
-						&#8377;${user.coursefees}</h5></td>
-				<td><h5 class="collected-fees">
-						&#8377;${user.paidfees}</h5></td>
+				<td><h5 class="collected-fees formattedOutput">
+						${user.coursefees}</h5></td>
+				<td><h5 class="collected-fees formattedOutput">
+						${user.paidfees}</h5></td>
 				<td>
-					<h5 class="pending-fees">
-						&#8377;${user.unpaidfees}</h5>
+					<h5 class="pending-fees formattedOutput">${user.unpaidfees}</h5>
 				</td>
+				
 				<td>${user.username}</td>
 				<td>${user.password}</td>
 				<td>${user.phone}</td>
@@ -128,5 +128,23 @@ h2 {
 			</tr>
 		</c:forEach>
 	</table>
+
+	<script>
+	  function formatNumberWithCommas(number) {
+    	  return number.toLocaleString("en-IN");
+    	}
+    	function formatAmountsWithCommas() {
+    	  const formattedOutputElements = document.getElementsByClassName('formattedOutput');
+    	
+    	  for (let i = 0; i < formattedOutputElements.length; i++) {
+    	    const amount = formattedOutputElements[i].textContent;
+    	    const parsedAmount = parseFloat(amount.replace(/₹ /, '').replace(/,/g, ''));
+    	    const formattedAmount = formatNumberWithCommas(parsedAmount);
+
+    	    formattedOutputElements[i].innerHTML = '&#8377; ' + formattedAmount;
+    	  }
+    	}
+    	window.addEventListener('load', formatAmountsWithCommas);
+	 </script>
 </body>
 </html>

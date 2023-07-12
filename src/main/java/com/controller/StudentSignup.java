@@ -67,7 +67,7 @@ public class StudentSignup extends HttpServlet
 		byte[] imageBytes = byteOutputStream.toByteArray();
 
 		PrintWriter pw = response.getWriter();
-		Student users = new Student(username,email,city,mobile,age,course,imageBytes,FullName,pass);
+		Student users = new Student(username,email,city,mobileS,age,course,imageBytes,FullName,pass);
 
 		if(sdao.Signup(users))
 		{

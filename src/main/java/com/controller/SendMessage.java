@@ -39,7 +39,9 @@ public class SendMessage extends HttpServlet
 		String batchName = null;	
 		int batchId = Integer.parseInt(request.getParameter("batchId"));
 		
-		String messageEncrypt = request.getParameter("messageText");	
+		String messageEncrypt = request.getParameter("messageText");
+		System.out.println("\n Old :"+messageEncrypt+"\n");
+		
 		CodeGenerator convert = new CodeGenerator();
 		String messageText = convert.Generator(messageEncrypt);
 		String Decryption = Encrypt.Generator(convert,messageText);
@@ -76,15 +78,17 @@ public class SendMessage extends HttpServlet
 
 			List<Message> messages = sdao.send_message(loggedInFacultyId,loggedInStudentId,batchId,messageText,callingPage,serializationData);
 
-			request.setAttribute("messages", messages);
+			
 
-			if (sdao.rowsAffected > 0)
-			{
-				request.getRequestDispatcher("StudentMessage.jsp?success=true").forward(request, response);
-			} else
-			{
-				request.getRequestDispatcher("StudentMessage.jsp?success=false").forward(request, response);
+			if (sdao.rowsAffected > 0) {
+			    session.setAttribute("messages", messages);
+			    response.sendRedirect("StudentMessage.jsp?success=true");
+			} else {
+			    response.sendRedirect("StudentMessage.jsp?success=false");
 			}
+
+
+
 			
 		} else
 		{

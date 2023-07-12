@@ -126,10 +126,22 @@ body {
 }
 
 .pay-button {
-	background-color: #18b6f0;
+	background-color: #18BD5B;
 	color: white;
 	border: none;
 	padding: 10px 20px;
+	margin-left:5px;
+	font-size: 16px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.edit-button {
+	background-color: #5BC0DE;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	margin-left:5px;
 	font-size: 16px;
 	border-radius: 5px;
 	cursor: pointer;
@@ -162,8 +174,7 @@ body {
 		<%
 		byte[] imageBytes = (byte[]) session.getAttribute("imageBytes");
 		String base64Image = null;
-		if (imageBytes != null)
-		{
+		if (imageBytes != null) {
 			base64Image = java.util.Base64.getEncoder().encodeToString(imageBytes);
 		}
 		%>
@@ -210,17 +221,29 @@ body {
 			<div class="info-container">
 				<i class="fas fa-book info-icon"></i>
 				<p>
-					Course Fees: <span class="green-text"><strong>&#8377;<%=session.getAttribute("coursefees")%></strong></span>
+					Course Fees: <span class="green-text "><strong
+						class=" formattedOutput"><%=session.getAttribute("coursefees")%></strong></span>
 				</p>
 			</div>
 
 			<div class="info-container">
 				<a href="Payment.jsp">
 					<button class="pay-button">
-						<strong>Pay &#8377; <%=session.getAttribute("unpaidfees")%></strong>
+						<strong>Pay <span class=" formattedOutput"><%=session.getAttribute("unpaidfees")%></span></strong>
 					</button>
 				</a>
+				<form action="editStudent" method="get">
+					<input type="hidden" name="stdid"
+						value="<%=session.getAttribute("studentId")%>">
+					<button class="edit-button" type="submit">
+						<i class="fas fa-edit"></i>&nbsp;&nbsp;<strong>Edit
+							Profile</strong>
+					</button>
+				</form>
 			</div>
+
+	
+
 
 
 			<div class="additional-info">
@@ -242,18 +265,34 @@ body {
 
 				<p>
 					<i class="fa fa-credit-card-alt" aria-hidden="true"></i> Paid Fees:
-					<span class="green-text"><strong> &#8377; <%=session.getAttribute("paidfees")%>
+					<span class="green-text "><strong class=" formattedOutput"><%=session.getAttribute("paidfees")%></strong></span>
 				</p>
-				</strong></span>
 				<p>
 					<i class="fa fa-credit-card-alt" aria-hidden="true"></i> Unpaid
-					Fees: <span class="red-text"><strong> &#8377; <%=session.getAttribute("unpaidfees")%>
+					Fees: <span class="red-text "><strong
+						class="formattedOutput"> <%=session.getAttribute("unpaidfees")%>
+					</strong></span>
 				</p>
-				</strong></span>
 
 			</div>
 		</div>
 	</div>
+	<script>
+	  function formatNumberWithCommas(number) {
+    	  return number.toLocaleString("en-IN");
+    	}
+    	function formatAmountsWithCommas() {
+    	  const formattedOutputElements = document.getElementsByClassName('formattedOutput');
+    	
+    	  for (let i = 0; i < formattedOutputElements.length; i++) {
+    	    const amount = formattedOutputElements[i].textContent;
+    	    const parsedAmount = parseFloat(amount.replace(/₹ /, '').replace(/,/g, ''));
+    	    const formattedAmount = formatNumberWithCommas(parsedAmount);
 
+    	    formattedOutputElements[i].innerHTML = '&#8377; ' + formattedAmount;
+    	  }
+    	}
+    	window.addEventListener('load', formatAmountsWithCommas);
+	 </script>
 </body>
 </html>

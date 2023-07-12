@@ -37,7 +37,6 @@
 	text-align: left;
 	width: 300px;
 	margin-left: 73%;
-	
 }
 
 .message-container-admin {
@@ -178,7 +177,6 @@ h2 {
 	width: 50px; /* Adjust the width as per your requirement */
 	height: 45px;
 	border-radius: 50%; /* Maintain the aspect ratio */
-	/* Maintain the aspect ratio */
 }
 
 .imgright {
@@ -194,9 +192,7 @@ h2 {
 <body>
 
 	<div id="navbarContainer"></div>
-
 	<script>
-	
 	fetch('/FirstWeb2/WelcomeNavBar.jsp')
     .then(response => response.text())
     .then(data => {
@@ -241,6 +237,7 @@ h2 {
 							<div class="message-text">${message.messageText}</div>
 							<div class="message-date">Sent at: ${message.createDate}</div>
 						</div>
+
 					</c:forEach>
 
 
@@ -256,15 +253,18 @@ h2 {
 							</c:if>
 						</div>
 					</div>
+
 					<div class="bottom-container">
-						<form class="text-input" action="sendMessage" method="post">	
-							<input type="hidden" name="facultyId" value="<%=session.getAttribute("facultyId")%>">
-							<input type="hidden" name="studentId" value="<%=session.getAttribute("studentId")%>">
-							<input type="hidden" name="batchId" value="<%=session.getAttribute("batchId")%>">
-							<input type="hidden" name="callingPage" value="page2"> 
-							
-						    <input name="messageText" placeholder="Type Message..."> 
-						    <input type="submit" value="Send" class="send-button">
+						<form class="text-input" action="sendMessage" method="post">
+							<input type="hidden" name="facultyId"
+								value="<%=session.getAttribute("facultyId")%>"> <input
+								type="hidden" name="studentId"
+								value="<%=session.getAttribute("studentId")%>"> <input
+								type="hidden" name="batchId"
+								value="<%=session.getAttribute("batchId")%>"> <input
+								type="hidden" name="callingPage" value="page2"> <input
+								name="messageText" placeholder="Type Message..."> <input
+								type="submit" value="Send" class="send-button">
 						</form>
 					</div>
 				</div>
@@ -278,5 +278,24 @@ h2 {
 			messagesWrapper.scrollTop = messagesWrapper.scrollHeight;
 		});
 	</script>
+
+	<script>
+  window.onbeforeunload = function(event) {
+    // Check if the event is due to a page reload
+    if (event.clientY < 0) {
+      // Call your servlet here
+      // You can use the fetch API to make an AJAX request to the servlet
+      // For example:
+      fetch('/receiveMessage')
+        .then(response => {
+          // Handle the response if needed
+        })
+        .catch(error => {
+          // Handle any errors
+          console.error('Error calling servlet:', error);
+        });
+    }
+  };
+</script>
 </body>
 </html>

@@ -107,20 +107,21 @@ input[type="text"], input[type="number"] {
 		<h2>Payment Details</h2>
 
 		<div class="info-container">
-			<label for="card-number">Card Number</label> <input type="text"
-				id="card-number" name="card-number" placeholder="Card Number">
-			<span id="card-number-error" class="error-message"></span>
+			<label for="card-number">Card Number</label> <input type="number"
+				id="card-number" name="card-number" placeholder="Card Number"
+				pattern="\d{1,8}" inputmode="numeric" maxlength = "8"> <span
+				id="card-number-error" class="error-message"></span>
 		</div>
 		<div class="info-container">
 			<label for="expiration-date">Expiration Date</label> <input
 				type="text" id="expiration-date" name="expiration-date"
-				placeholder="MM/YY"> <span id="expiration-date-error"
-				class="error-message"></span>
+				placeholder="MM/YY" pattern="\d{1,2}\/\d{1,2}" required> <span
+				id="expiration-date-error" class="error-message"></span>
 		</div>
 		<div class="info-container">
 			<label for="cvv">CVV</label> <input type="number" id="cvv" name="cvv"
-				placeholder="CVV"> <span id="cvv-error"
-				class="error-message"></span>
+				placeholder="CVV" pattern="\d{1,3}" inputmode="numeric" required>
+			<span id="cvv-error" class="error-message"></span>
 		</div>
 		<form class="signup-form" action="payfees" method="post">
 			<div class="info-container">

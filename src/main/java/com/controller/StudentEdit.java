@@ -48,7 +48,7 @@ public class StudentEdit extends HttpServlet
 		String email = request.getParameter("email");
 		String username = request.getParameter("username");
 		String city = request.getParameter("city");
-		int mobile = Integer.parseInt(request.getParameter("mobile"));
+		String mobile = request.getParameter("mobile");
 		int age = Integer.parseInt(request.getParameter("age"));
 
 		System.out.println("ageS: " + age);
@@ -63,14 +63,30 @@ public class StudentEdit extends HttpServlet
 		String token = (String) session.getAttribute("jwtToken");
 		if (token != null && AuthenticationPoint.validateToken(token))
 		{
-			if (sdao.updateProfile(users))
+			String callingPage = request.getParameter("callingPage");
+
+			if (callingPage != null && callingPage.equals("adminPage"))
 			{
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/allStudent");
-				dispatcher.forward(request, response);
-			} else
+				if (sdao.updateProfile(users))
+				{
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/allStudent");
+					dispatcher.forward(request, response);
+				} else
+				{
+					response.sendRedirect("AdminWelcome.jsp");
+				}
+			} else 
 			{
-				response.sendRedirect("AdminWelcome.jsp");
-			}
+				if (sdao.updateProfile(users))
+				{
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/StudentProfile.jsp");
+					dispatcher.forward(request, response);
+				} else
+				{
+					response.sendRedirect("WelcomePage.jsp");
+				}
+			} 
+			
 		} else
 		{
 			session.invalidate();

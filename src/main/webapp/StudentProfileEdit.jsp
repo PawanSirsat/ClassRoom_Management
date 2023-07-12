@@ -91,17 +91,18 @@ body {
 .si5:hover {
 	text-decoration: none; /* Remove underline on hover */
 }
-  .hidden {
-        display: none;
-    }
+
+.hidden {
+	display: none;
+}
 </style>
 </head>
 
 <body>
-<script>
+	<script>
 // Fetch the navbar content
-fetch('AdminNavBar.jsp')
-  .then(response => response.text())
+        fetch('/FirstWeb2/WelcomeNavBar.jsp')
+	  .then(response => response.text())
   .then(data => {
     // Insert the navbar content into the navbarContainer div
     document.getElementById('adminnavbar').innerHTML = data;
@@ -146,101 +147,94 @@ fetch('AdminNavBar.jsp')
 </script>
 
 
-    <div id="adminnavbar"></div>
-    
+	<div id="adminnavbar"></div>
+
 	<div class="signup-container">
-		<h2 class="signup-heading"> Update Form </h2>
+		<h2 class="signup-heading">Update Form</h2>
 		<form class="signup-form" action="update" method="post"
 			onsubmit="return validateForm()">
 
 			<div class="form-row">
 				<div class="form-group">
-				<fieldset class="form-group">
-					<label>User Name</label> <input type="text"
-						value="<c:out value='${StdProfile.username}' />" 
-						class="form-control"
-						name="username" required="required">
-				</fieldset>
-				
-					
+					<fieldset class="form-group">
+						<label>User Name</label> <input type="text"
+							value="<c:out value='${StdProfile.username}' />"
+							class="form-control" name="username" required="required">
+					</fieldset>
+
+
 				</div>
 				<div class="form-group">
 					<fieldset class="form-group">
-					<label>Full Name</label> <input type="text"
-						value="<c:out value='${StdProfile.fullName}' />" 
-						class="form-control"
-						name="fullname" required="required">
-				</fieldset>
+						<label>Full Name</label> <input type="text"
+							value="<c:out value='${StdProfile.fullName}' />"
+							class="form-control" name="fullname" required="required">
+					</fieldset>
 				</div>
 			</div>
 
 			<div class="form-row">
-				
-						<div class="form-group">
+
+				<div class="form-group">
 					<fieldset class="form-group">
-					<label>Email</label> <input type="text"
-						value="<c:out value='${StdProfile.email}' />" 
-						class="form-control"
-						name="email" required="required">
-				</fieldset>
-				</div>				
-				
-					<input type="hidden" name="id" value="<c:out value='${StdProfile.id}' />" />
+						<label>Email</label> <input type="text"
+							value="<c:out value='${StdProfile.email}' />"
+							class="form-control" name="email" required="required">
+					</fieldset>
+				</div>
+
+				<input type="hidden" name="id"
+					value="<c:out value='${StdProfile.id}' />" />
 				<div class="form-group">
 					<div class="form-group">
-					<fieldset class="form-group">
-					<label>Age</label> <input type="text"
-						value="<c:out value='${StdProfile.intage}' />" 
-						class="form-control"
-						name="age" required="required">
-				</fieldset>
-				</div>
+						<fieldset class="form-group">
+							<label>Age</label> <input type="text"
+								value="<c:out value='${StdProfile.intage}' />"
+								class="form-control" name="age" required="required">
+						</fieldset>
 					</div>
+				</div>
 			</div>
 
 			<div class="form-row">
 				<div class="form-group">
-				<fieldset class="form-group">
-					<label>Phone</label> <input type="text"
-						value="<c:out value='${StdProfile.intphone}' />" 
-						class="form-control"
-						name="mobile" required="required">
-				</fieldset>
-				
-					</div>
+					<fieldset class="form-group">
+						<label>Phone</label> <input type="text"
+							value="<c:out value='${StdProfile.phone}' />"
+							class="form-control" name="mobile" required="required">
+					</fieldset>
 
-				<div class="form-group">
-				<fieldset class="form-group">
-					<label>City</label> <input type="text"
-						value="<c:out value='${StdProfile.city}' />" 
-						class="form-control"
-						name="city" required="required">
-				</fieldset>
-					</div>
-			</div>
-
-			<div class="form-row">
-				<div class="form-group">
-				<fieldset class="form-group">
-					<label>Password</label> <input type="text"
-						value="<c:out value='${StdProfile.password}' />" 
-						class="form-control"
-						name="password" required="required">
-				</fieldset>
 				</div>
 
 				<div class="form-group">
 					<fieldset class="form-group">
-					<label>Confirm Password</label> <input type="text"
-						value="<c:out value='${StdProfile.password}' />" 
-						class="form-control"
-						name="password" required="required">
-				</fieldset>
+						<label>City</label> <input type="text"
+							value="<c:out value='${StdProfile.city}' />" class="form-control"
+							name="city" required="required">
+					</fieldset>
 				</div>
 			</div>
-					<input type="hidden" name="callingPage" value="adminPage" />
 
-			<input class="form-button" type="submit" value="Save">
+			<div class="form-row">
+				<div class="form-group">
+					<fieldset class="form-group">
+						<label>Password</label> <input type="text"
+							value="<c:out value='${StdProfile.password}' />"
+							class="form-control" name="password" required="required">
+					</fieldset>
+				</div>
+
+				<div class="form-group">
+					<fieldset class="form-group">
+						<label>Confirm Password</label> <input type="text"
+							value="<c:out value='${StdProfile.password}' />"
+							class="form-control" name="password" required="required">
+					</fieldset>
+				</div>
+			</div>
+			<input type="hidden" name="callingPage" value="studentPage" /> 
+			<input
+				class="form-button" type="submit" value="Save">
 
 		</form>
 

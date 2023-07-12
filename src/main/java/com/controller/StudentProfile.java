@@ -22,7 +22,6 @@ public class StudentProfile extends HttpServlet
 	/**
 	 * 
 	 */
-
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
@@ -39,8 +38,7 @@ public class StudentProfile extends HttpServlet
 
 			if (token != null && AuthenticationPoint.validateToken(token))
 			{
-				Payment payment = pdao.payment_details(loggedInStudentId);				
-		        
+				Payment payment = pdao.payment_details(loggedInStudentId);				    
 				session.setAttribute("coursefees", payment.getCourse_fees()); // Assuming 'username' is the variable
 				session.setAttribute("paidfees", payment.getPaid_fees()); // Assuming 'username' is the variable that
 				session.setAttribute("unpaidfees", payment.getUnpaid_fees()); // Assuming 'username' is the variable
@@ -54,11 +52,9 @@ public class StudentProfile extends HttpServlet
 			}
 		} catch (ClassNotFoundException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

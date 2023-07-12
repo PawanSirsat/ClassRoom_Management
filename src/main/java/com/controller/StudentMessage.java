@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,8 +18,14 @@ import com.sql.JDBC;
 
 import JwtAuthentication.AuthenticationPoint;
 
+@WebServlet("/receiveMessage")
 public class StudentMessage extends HttpServlet
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 
@@ -30,6 +37,7 @@ public class StudentMessage extends HttpServlet
 		
 		session.setAttribute("batchId", batchId);
 
+		System.out.println("\n ___---___\n");
 
 		String token = (String) session.getAttribute("jwtToken");
 		List<Message> messages = new ArrayList<Message>();

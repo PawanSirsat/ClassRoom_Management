@@ -19,6 +19,10 @@ import JwtAuthentication.AuthenticationPoint;
 
 public class StudentLogin extends HttpServlet
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	StudentDao sdao;
 	PaymentDao pdao;
 
@@ -26,7 +30,7 @@ public class StudentLogin extends HttpServlet
 	{
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-
+		
 		try
 		{
 			sdao = new StudentDao(JDBC.getConnection());
@@ -43,16 +47,12 @@ public class StudentLogin extends HttpServlet
 				System.out.println("\n1: " + token);
 
 				session.setAttribute("studentId", std.getId()); // Assuming 'username' is the variable that holds the
-
 				Payment payment = pdao.payment_details(std.getId());
 
-				session.setAttribute("coursefees", payment.getCourse_fees()); // Assuming 'username' is the variable
-																				// that holds // the
-				session.setAttribute("paidfees", payment.getPaid_fees()); // Assuming 'username' is the variable that
-																			// holds // the
+				session.setAttribute("coursefees", payment.getCourse_fees()); // Assuming 'username' is the variable																// that holds // the
+				session.setAttribute("paidfees", payment.getPaid_fees()); // Assuming 'username' is the variable that																// holds // the
 				session.setAttribute("unpaidfees", payment.getUnpaid_fees()); // Assuming 'username' is the variable
 																				// that holds // the
-
 				System.out.println("USer:  "+std.getId());
 				session.setAttribute("username", std.getUsername()); // Assuming 'username' is the variable that holds								// // the
 				session.setAttribute("fullname", std.getFullName()); // Assuming 'username' is the variable that holds
@@ -64,10 +64,8 @@ public class StudentLogin extends HttpServlet
 				session.setAttribute("city", std.getCity());
 				session.setAttribute("email", std.getEmail());
 
-				session.setAttribute("batchId", std.getBatchId()); // Assuming 'username' is the variable that holds the
-																	// username
-				session.setAttribute("batchName", std.getBatchName()); // Assuming 'username' is the variable that holds
-																		// the
+				session.setAttribute("batchId", std.getBatchId()); // Assuming 'username' is the variable that holds the															// username
+				session.setAttribute("batchName", std.getBatchName()); // Assuming 'username' is the variable that holds														// the
 				session.setAttribute("batchyear", std.getBatchyear()); // Assuming 'username' is the variable that holds
 																		// the
 				session.setAttribute("batchfaculty", std.getFacultyName());

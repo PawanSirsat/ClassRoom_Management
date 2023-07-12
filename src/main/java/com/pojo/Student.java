@@ -31,14 +31,14 @@ public class Student implements Serializable
 	private String Password;
 
 	
-	public Student(String username, String email, String city, int mobile, int age2,String course, byte[] imageBytes,
+	public Student(String username, String email, String city, String mobile, int age2,String course, byte[] imageBytes,
 			String fullName, String password)
 	{
 		super();
 		this.username = username;
 		this.email = email;
 		this.city = city;
-		this.intphone = mobile;
+		this.phone = mobile;
 		this.intage = age2;
 		this.course = course;
 		this.imageBytes = imageBytes;
@@ -152,14 +152,14 @@ public class Student implements Serializable
 		this.batchId = batchId;
 	}
 
-	public Student(int id,String username, String email, String city, int phone, int age, String course,
+	public Student(int id,String username, String email, String city, String phone, int age, String course,
 			String imagePath, String fullName, String password)
 	{
 		super();
 		this.username = username;
 		this.email = email;
 		this.city = city;
-		this.intphone = phone;
+		this.phone = phone;
 		this.intage = age;
 		this.course = course;
 		this.imagePath = imagePath;

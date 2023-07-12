@@ -10,16 +10,6 @@
 	</welcome-file-list>
 
 	<servlet>
-		<servlet-name>ReceiveMessage</servlet-name>
-		<servlet-class>com.controller.StudentMessage</servlet-class>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>ReceiveMessage</servlet-name>
-		<url-pattern>/receiveMessage</url-pattern>
-	</servlet-mapping>
-
-	<servlet>
 		<servlet-name>ProfileServlet</servlet-name>
 		<servlet-class>com.controller.StudentProfile</servlet-class>
 	</servlet>
@@ -27,7 +17,7 @@
 		<servlet-name>ProfileServlet</servlet-name>
 		<url-pattern>/studentProfile</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>ProfileUpdateServlet</servlet-name>
 		<servlet-class>com.controller.StudentEdit</servlet-class>
@@ -35,6 +25,15 @@
 	<servlet-mapping>
 		<servlet-name>ProfileUpdateServlet</servlet-name>
 		<url-pattern>/update</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ProfileEditServlet</servlet-name>
+		<servlet-class>com.controller.StudentEditProfile</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ProfileEditServlet</servlet-name>
+		<url-pattern>/editStudent</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
