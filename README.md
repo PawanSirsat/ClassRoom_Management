@@ -10,7 +10,7 @@ It demonstrates my ability to build a comprehensive web application that effecti
 facilitates assignment distribution, and promotes seamless communication
 
 # Welcome Page 
-![image](https://github.com/PawanSirsat/ClassRoom_Management/assets/48860105/a8ac96fe-5fa0-4b25-bfc0-66ddeef984fc)
+![image](https://github.com/PawanSirsat/ClassRoom_Management/assets/48860105/f96e84fe-b617-4108-87e8-514ca3a742ca)
 
 # SignUp Page
 ![image](https://github.com/PawanSirsat/ClassRoom_Management/assets/48860105/62b55f08-fdaf-46aa-8992-aba8739abd57)
