@@ -28,14 +28,15 @@
 	border-radius: 15px;
 	background-color: #0377fc;
 	color: white;
-	border-top-left-radius: 15px; border-top-right-radius :0;
-	border-bottom-right-radius : 15px; border-bottom-left-radius : 15px;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 15px;
+	border-bottom-left-radius: 15px;
 	padding: 15px;
 	margin-bottom: 5px;
 	text-align: left;
 	width: 300px;
 	margin-left: 73%;
-	
 }
 
 .message-info {
@@ -170,7 +171,6 @@ h2 {
 	border-radius: 50%; /* Maintain the aspect ratio */
 	/* Maintain the aspect ratio */
 }
-
 </style>
 </head>
 <body>
@@ -188,7 +188,7 @@ h2 {
     .catch(error => console.error('Error fetching navbar:', error));
 	
  </script>
-	<h1 class="text-center mt-3">
+	<h1 class="text-center mt-1">
 		Batch Name :
 		<%=session.getAttribute("batchName")%>
 	</h1>
@@ -199,10 +199,10 @@ h2 {
 				<div class="messages-wrapper">
 					<c:forEach var="message" items="${messages}">
 						<c:set var="messageClass"
-							value="${message.senderName eq sessionScope.facultyName ? 'message-container-right' : 'message-container-left'}" />
+							value="${message.senderName eq sessionScope.facultyname ? 'message-container-right' : 'message-container-left'}" />
 
 						<c:set var="imgClass"
-							value="${message.senderName eq sessionScope.facultyName ? 'imgleft' : (message.senderName eq 'Admin' ? 'message-container-admin' : 'imgright')}" />
+							value="${message.senderName eq sessionScope.facultyname ? 'imgleft' : (message.senderName eq 'Admin' ? 'imgright' : 'imgright')}" />
 
 
 						<div class="${imgClass}">

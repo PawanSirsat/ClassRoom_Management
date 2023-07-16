@@ -22,9 +22,9 @@ body {
 }
 
 .navbar-brand {
-	font-size: 60px;
+	font-size: 80px;
 	font-weight: bold;
-	font-family: 'Press Start 2P', cursive;
+font-family: 'Lexend Mega', sans-serif;
 	color: #4CAF50;
 }
 
@@ -128,22 +128,23 @@ button {
 }
 
 .challenge-button:hover {
-    text-decoration: none;
-    color: #06c46c;
+	text-decoration: none;
+	color: #06c46c;
 }
 
 .challenge-button:focus {
-    outline: none; /* Added to remove the inner line when focused */
+	outline: none; /* Added to remove the inner line when focused */
 }
 
 .btn1-button:hover {
-    text-decoration: none;
-    color: #06c46c;
+	text-decoration: none;
+	color: #06c46c;
 }
 
 .btn1-button:focus {
-    outline: none; /* Added to remove the inner line when focused */
+	outline: none; /* Added to remove the inner line when focused */
 }
+
 .challenge-button {
 	text-decoration: none;
 	padding: 5px 10px;
@@ -199,19 +200,17 @@ button {
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-	href="https://fonts.googleapis.com/css2?family=Alata&family=Gloria+Hallelujah&family=Josefin+Sans:wght@600&family=Lexend+Mega&family=Permanent+Marker&family=Press+Start+2P&display=swap"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alata&family=Gloria+Hallelujah&family=Itim&family=Josefin+Sans:wght@600&family=Kanit:wght@300&family=Lexend+Mega&family=Permanent+Marker&family=Press+Start+2P&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
 	crossorigin="anonymous">
 </head>
 <body>
-	
+
 	<div class="navbar" style="position: fixed; top: 0; left: 0;">
 		<div class="navbar-items-left">
-			<span class="navbar-brand">Codenera</span> <a class="navbar-item"
+			<span class="navbar-brand">GeekGenius</span> <a class="navbar-item"
 				href="index.jsp"><i class="fa-solid fa-house"></i> Home</a> <a
 				class="navbar-item" href="About.jsp">About</a>
 			<%
@@ -264,19 +263,19 @@ button {
 			} else {
 			%>
 
-		<div class="bt1 d-sm-flex align-items-sm-center with-border">
-    <a class="bt1 d-sm-flex align-items-sm-center" href="studentProfile" style="float: right; text-decoration: none;">
-        <% 
-        byte[] imageBytes = (byte[]) session.getAttribute("imageBytes");
-        String base64Image = null;
-        if (imageBytes != null) {
-            base64Image = java.util.Base64.getEncoder().encodeToString(imageBytes);
-        }
-        %>
-        <img class="profile-image2" src="data:image/jpeg;base64, <%=base64Image%>" alt="Student Image">
-        <strong class="d-none d-sm-block ms-1 non">&nbsp;&nbsp;<%=request.getSession().getAttribute("fullname")%></strong>
-    </a>
-</div>
+			<div class="bt1 d-sm-flex align-items-sm-center with-border">
+				<a class="bt1 d-sm-flex align-items-sm-center" href="studentProfile"
+					style="float: right; text-decoration: none;"> <%
+ byte[] imageBytes = (byte[]) session.getAttribute("imageBytes");
+ String base64Image = null;
+ if (imageBytes != null) {
+ 	base64Image = java.util.Base64.getEncoder().encodeToString(imageBytes);
+ }
+ %> <img class="profile-image2"
+					src="data:image/jpeg;base64, <%=base64Image%>" alt="Student Image">
+					<strong class="d-none d-sm-block ms-1 non">&nbsp;&nbsp;<%=request.getSession().getAttribute("fullname")%></strong>
+				</a>
+			</div>
 
 
 			<form action="logout" method="post" class="signout-button">

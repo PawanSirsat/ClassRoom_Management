@@ -44,15 +44,15 @@
 	border-radius: 15px;
 	background-color: #7ae6be;
 	color: black;
-	border-top-left-radius: 15px;
-	border-top-right-radius: 0px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 15px;
 	border-bottom-right-radius: 15px;
 	border-bottom-left-radius: 15px;
 	padding: 15px;
-	margin-bottom: 15px;
+	margin-bottom: 5px;
 	text-align: left;
 	width: 300px;
-	margin-left: 73%;
+	margin-left: 4%;
 }
 
 .message-info {
@@ -177,7 +177,6 @@ h2 {
 	width: 50px; /* Adjust the width as per your requirement */
 	height: 45px;
 	border-radius: 50%; /* Maintain the aspect ratio */
-	/* Maintain the aspect ratio */
 }
 
 .imgright {
@@ -205,10 +204,10 @@ h2 {
     .catch(error => console.error('Error fetching navbar:', error));
 	
  </script>
-	<h2 class="text-center mt-3">
+	<h1 class="text-center mt-1">
 		Batch Name :
 		<%=session.getAttribute("batchName")%>
-	</h2>
+	</h1>
 
 	<div class="container mt-6">
 		<div class="row">
@@ -217,29 +216,28 @@ h2 {
 
 					<c:forEach var="message" items="${messages}">
 						<c:set var="messageClass"
-							value="${message.senderName eq sessionScope.username ? 'message-container-right' : (message.senderName eq 'Admin' ? 'message-container-admin' : 'message-container-left')}" />
+							value="${message.senderName eq 'Admin' ? 'message-container-right' : (message.senderName eq 'Admin' ? 'message-container-admin' : 'message-container-left')}" />
 
 						<c:set var="imgClass"
-							value="${message.senderName eq 'Admin' ? 'message-container-admin' : 'imgright'}" />
-
-						<c:choose>
-							<c:when test="${not empty message.senderImg}">
-								<div class="${imgClass}">
-									<c:choose>
-										<c:when test="${not empty message.senderImg}">
-											<img src="${message.senderImg}" alt="User Photo"
-												class="user-photo" />
-										</c:when>
-									</c:choose>
-								</div>
-							</c:when>
-						</c:choose>
+							value="${message.senderName eq 'Admin' ? 'imgleft' : (message.senderName eq 'Admin' ? 'imgright' : 'imgright')}" />
+						<div class="${imgClass}">
+							<c:choose>
+								<c:when test="${not empty message.senderImg}">
+									<img src="${message.senderImg}" alt="User Photo"
+										class="user-photo" />
+								</c:when>
+								<c:otherwise>
+									<i class="fa-solid fa-user fa-2xl"></i>
+								</c:otherwise>
+							</c:choose>
+						</div>
 
 						<div class="${messageClass}">
 							<div class="message-info">From: ${message.senderName}</div>
 							<div class="message-text">${message.messageText}</div>
 							<div class="message-date">Sent at: ${message.createDate}</div>
 						</div>
+
 					</c:forEach>
 
 
@@ -255,6 +253,7 @@ h2 {
 							</c:if>
 						</div>
 					</div>
+
 					<div class="bottom-container">
 						<form class="text-input" action="sendMessageAdmin" method="post">
 							<input type="hidden" name="facultyId"
@@ -279,5 +278,24 @@ h2 {
 			messagesWrapper.scrollTop = messagesWrapper.scrollHeight;
 		});
 	</script>
+
+	<script>
+  window.onbeforeunload = function(event) {
+    // Check if the event is due to a page reload
+    if (event.clientY < 0) {
+      // Call your servlet here
+      // You can use the fetch API to make an AJAX request to the servlet
+      // For example:
+      fetch('/receiveMessage')
+        .then(response => {
+          // Handle the response if needed
+        })
+        .catch(error => {
+          // Handle any errors
+          console.error('Error calling servlet:', error);
+        });
+    }
+  };
+</script>
 </body>
 </html>

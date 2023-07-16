@@ -202,7 +202,7 @@ h2 {
     .catch(error => console.error('Error fetching navbar:', error));
 	
  </script>
-	<h1 class="text-center mt-3">
+	<h1 class="text-center mt-2">
 		Batch Name :
 		<%=session.getAttribute("batchName")%>
 	</h1>

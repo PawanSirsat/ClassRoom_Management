@@ -59,15 +59,15 @@
 </script>
   <div class="about-container">
     <h1>About Our Company</h1>
-    <p>Codenera is a specialized coding school, train
+    <p>GeekGenius is a specialized coding school, train
      resources rigorously on competitive technologies. We at
-      Codenera make sure that the quality coders we are making are
+      GeekGenius make sure that the quality coders we are making are
        matching to the industry standards and placing into the right
         position.</p>
 
     <div class="contact-info">
       <p>      <i class="fas fa-envelope"></i>
-      Email: p1.sirsat1998.com</p>
+      Email: edu@GeekGenius.in</p>
     </div>
 
     <div class="contact-info">
@@ -77,7 +77,7 @@
 
     <div class="contact-info">
       <p>      <i class="fas fa-map-marker-alt"></i>
-      Address: 123 Main Baner, Pune, India</p>
+      Address: 411038 Kothrud, Pune, India</p>
     </div>
   </div>
 </body>
