@@ -63,7 +63,7 @@ public class ShowBatch extends HttpServlet
 					String username = resultSet.getString("username");
 					String email = resultSet.getString("email");
 					String password = resultSet.getString("password");
-					int mobile = resultSet.getInt("phone");
+					String mobile = resultSet.getString("phone");
 					String city = resultSet.getString("city");
 					int age = resultSet.getInt("age");
 					String course = resultSet.getString("course");

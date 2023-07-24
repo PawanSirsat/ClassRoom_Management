@@ -258,8 +258,8 @@ th {
 	    	const totalFaculty = <%=session.getAttribute("totalFaculty")%>;
 	    	const totalBatches = <%=session.getAttribute("totalBatches")%>;
 
-	    	const userPercentage = ((totalUsers / 60) * 100).toFixed(2);
-	        const facultyPercentage = ((totalFaculty / 10) * 100).toFixed(2);
+	    	const userPercentage = ((totalUsers / 30) * 100).toFixed(2);
+	        const facultyPercentage = ((totalFaculty / 15) * 100).toFixed(2);
 	        const batchPercentage = ((totalBatches / 20) * 100).toFixed(2);
 	        
 	    	document.getElementById("userProgressBar").style.width = userPercentage + '%';

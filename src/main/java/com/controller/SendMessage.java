@@ -30,22 +30,23 @@ public class SendMessage extends HttpServlet
 	String password = "ieytsak7eq@123";
 
 	StudentDao sdao;
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 
-		int loggedInFacultyId = (int) request.getSession().getAttribute("facultyId");	
+		int loggedInFacultyId = (int) request.getSession().getAttribute("facultyId");
 		int loggedInStudentId = (int) request.getSession().getAttribute("studentId");
 
-		String batchName = null;	
+		String batchName = null;
 		int batchId = Integer.parseInt(request.getParameter("batchId"));
-		
+
 		String messageEncrypt = request.getParameter("messageText");
-		System.out.println("\n Old :"+messageEncrypt+"\n");
-		
+		System.out.println("\n Old :" + messageEncrypt + "\n");
+
 		CodeGenerator convert = new CodeGenerator();
 		String messageText = convert.Generator(messageEncrypt);
-		String Decryption = Encrypt.Generator(convert,messageText);
-		
+		String Decryption = Encrypt.Generator(convert, messageText);
+
 		ObjectMapper objectMapper = new ObjectMapper();
 		String serializationData = null;
 		try
@@ -55,7 +56,7 @@ public class SendMessage extends HttpServlet
 		{
 			// TODO: handle exception
 		}
-		
+
 		String callingPage = request.getParameter("callingPage");
 
 		HttpSession session = request.getSession();
@@ -63,7 +64,7 @@ public class SendMessage extends HttpServlet
 
 		if (token != null && AuthenticationPoint.validateToken(token))
 		{
-			
+
 			try
 			{
 				sdao = new StudentDao(JDBC.getConnection());
@@ -74,27 +75,24 @@ public class SendMessage extends HttpServlet
 			{
 				e.printStackTrace();
 			}
-			
 
-			List<Message> messages = sdao.send_message(loggedInFacultyId,loggedInStudentId,batchId,messageText,callingPage,serializationData);
+			List<Message> messages = sdao.send_message(loggedInFacultyId, loggedInStudentId, batchId, messageText,
+					callingPage, serializationData);
 
-			
-
-			if (sdao.rowsAffected > 0) {
-			    session.setAttribute("messages", messages);
-			    response.sendRedirect("StudentMessage.jsp?success=true");
-			} else {
-			    response.sendRedirect("StudentMessage.jsp?success=false");
+			if (sdao.rowsAffected > 0)
+			{
+				session.setAttribute("messages", messages);
+				response.sendRedirect("StudentMessage.jsp?success=true");
+			} else
+			{
+				response.sendRedirect("StudentMessage.jsp?success=false");
 			}
 
-
-
-			
 		} else
 		{
 			session.invalidate();
 			response.sendRedirect("Studentlogin.html");
 		}
-		
+
 	}
 }

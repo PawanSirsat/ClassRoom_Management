@@ -8,10 +8,12 @@
 </head>
 <body>
 <script>
+
 window.onload = function() 
 {
        window.location.href = "AllChallenge";
 };
+
   </script>
 </body>
 </html>

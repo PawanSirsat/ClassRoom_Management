@@ -29,8 +29,8 @@
 	background-color: #0377fc;
 	color: white;
 	border-top-left-radius: 15px;
-	border-top-right-radius: 0px;
-	border-bottom-right-radius: 15px;
+	border-top-right-radius: 15px;
+	border-bottom-right-radius: 0px;
 	border-bottom-left-radius: 15px;
 	padding: 15px;
 	margin-bottom: 15px;

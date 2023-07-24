@@ -11,7 +11,6 @@ public class CodeGenerator
 		return obString;
 	}
 
-
 	public String Generator(String sc)
 	{
 		String user = sc;

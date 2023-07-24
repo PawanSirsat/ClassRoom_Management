@@ -190,6 +190,9 @@ button{
       <div class="header2">
         <span>Challenge : </span> ${challenge.challengeName}
       </div>
+       <div class="header2">
+        <span>Type : </span> ${challenge.challengeType}
+      </div>
       <div>
         <span>Difficulty : </span>
         <span style="font-weight: bold; color: red;">${challenge.difficultyLevel}</span>

@@ -202,7 +202,7 @@ fetch('AdminNavBar.jsp')
 				<div class="form-group">
 				<fieldset class="form-group">
 					<label>Phone</label> <input type="text"
-						value="<c:out value='${StdProfile.intphone}' />" 
+						value="<c:out value='${StdProfile.phone}' />" 
 						class="form-control"
 						name="mobile" required="required">
 				</fieldset>

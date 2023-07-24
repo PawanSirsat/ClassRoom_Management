@@ -14,6 +14,8 @@ public class Encrypt
 
 		String strfinal = new String();
 
+		System.out.print(" ");
+
 		for (int i = 0; i < ch.length; i++)
 		{
 			StringBuffer temp = new StringBuffer();
@@ -32,11 +34,9 @@ public class Encrypt
 						j2 = strArray.length;
 						i = j;
 						j = ch.length;
-					}
-					
+					}	
 				}
 			}
-			System.out.print(" ");
 		}
 		return strfinal;
 	}
