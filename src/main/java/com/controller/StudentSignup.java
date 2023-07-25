@@ -13,11 +13,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import com.dao.StudentDao;
 import com.pojo.Student;
 import com.sql.JDBC;
+
+import JwtAuthentication.AuthenticationPoint;
 
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB
 		maxFileSize = 1024 * 1024 * 10, // 10MB
@@ -26,13 +29,14 @@ import com.sql.JDBC;
 public class StudentSignup extends HttpServlet
 {
 	StudentDao sdao;
+
 	public void doPost(HttpServletRequest req, HttpServletResponse response) throws IOException, ServletException
 	{
-		
+
 		try
 		{
-		sdao = new StudentDao(JDBC.getConnection());
-		
+			sdao = new StudentDao(JDBC.getConnection());
+
 		} catch (ClassNotFoundException e)
 		{
 			// TODO Auto-generated catch block
@@ -42,13 +46,12 @@ public class StudentSignup extends HttpServlet
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		String username = req.getParameter("username");
 		String FullName = req.getParameter("fullname");
 		String email = req.getParameter("email");
 		String pass = req.getParameter("password");
 		String mobileS = req.getParameter("mobile");
-		int mobile = Integer.parseInt(mobileS);
 		String city = req.getParameter("city");
 		String ageS = req.getParameter("age");
 		int age = Integer.parseInt(ageS);
@@ -67,17 +70,41 @@ public class StudentSignup extends HttpServlet
 		byte[] imageBytes = byteOutputStream.toByteArray();
 
 		PrintWriter pw = response.getWriter();
-		Student users = new Student(username,email,city,mobileS,age,course,imageBytes,FullName,pass);
+		Student users = new Student(username, email, city, mobileS, age, course, imageBytes, FullName, pass);
 
-		if(sdao.Signup(users))
+		HttpSession session = req.getSession();
+		String token = (String) session.getAttribute("jwtToken");
+		if (token != null && AuthenticationPoint.validateToken(token))
 		{
-			RequestDispatcher dispatcher = req.getRequestDispatcher("Studentlogin.html");
-	        dispatcher.forward(req, response);	
+			String callingPage = req.getParameter("callingPage");
+
+			if (callingPage != null && callingPage.equals("adminPage"))
+			{
+				if (sdao.Signup(users))
+				{
+					RequestDispatcher dispatcher = req.getRequestDispatcher("AdminWelcome.jsp");
+					dispatcher.forward(req, response);
+				} else
+				{
+					response.sendRedirect("AdminWelcome.jsp");
+				}
+			} else
+			{
+				if (sdao.Signup(users))
+				{
+					RequestDispatcher dispatcher = req.getRequestDispatcher("Studentlogin.html");
+					dispatcher.forward(req, response);
+				} else
+				{
+					response.sendRedirect("signup.html");
+				}
+			}
+
+		} else
+		{
+			session.invalidate();
+			response.sendRedirect("index.jsp");
 		}
-		else {
-			response.sendRedirect("signup.html");
-		}
-		
+
 	}
 }
-

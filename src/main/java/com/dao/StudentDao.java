@@ -54,6 +54,8 @@ public class StudentDao
 	}
 	public boolean deleteUser(int id) throws SQLException {
 	    String DELETE_USERS_SQL = "DELETE FROM user WHERE id = ?";
+	    String DELETE_Payment = "DELETE FROM payments WHERE user_id = ?";
+
 	    boolean rowDeleted = false;
 	    try {
 	        // Check if the user exists
@@ -70,6 +72,10 @@ public class StudentDao
 	            if (rowsAffected > 0) {
 	                rowDeleted = true;
 	            }
+	            
+	            PreparedStatement deletepayment = con.prepareStatement(DELETE_Payment);
+	            deletepayment.setInt(1, id);
+	            deletepayment.executeUpdate();
 	            
 	            // Enable foreign key checks again
 	            String enableFKChecksSQL = "SET FOREIGN_KEY_CHECKS = 1";

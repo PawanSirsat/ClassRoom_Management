@@ -21,7 +21,7 @@ th, td {
 }
 
 th {
-	background-color: #4CAF50;
+	background-color: #5c5e5e;
 	color: white;
 	position: sticky;
 	top: 0;
@@ -233,8 +233,8 @@ h2 {
 					<h5 class="pending-fees formattedOutput">${user.unpaidfees}</h5>
 				</td>
 
-				<td class="student-name">${user.username}</td>
-				<td class="student-name">${user.password}</td>
+				<td class="full-name">${user.username}</td>
+				<td class="full-name">${user.password}</td>
 				<td class="student-name"><i class="fa fa-phone"></i>${user.phone}</td>
 				<td><c:choose>
 

@@ -176,6 +176,7 @@ fetch('AdminNavBar.jsp')
 						placeholder="Confirm Password" name="confirm-password" required>
 				</div>
 			</div>
+			<input type="hidden" name="callingPage" value="adminPage" /> 
 
 			<input class="form-button" type="submit" value="Add Student">
 
