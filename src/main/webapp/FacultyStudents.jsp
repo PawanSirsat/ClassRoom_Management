@@ -12,6 +12,39 @@ body {
 	background-color: #f8f8f8;
 }
 
+.button {
+	display: inline-block;
+	padding: 6px 10px;
+	border-radius: 5px;
+	cursor: pointer;
+	text-decoration: none;
+	transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.button-icon {
+	margin-right: 5px;
+}
+
+.delete-button {
+	display: inline-block;
+	background-color: #4287f5; /* Redish color */
+	color: white;
+	padding: 6px 10px;
+	border-radius: 5px;
+	cursor: pointer;
+	text-decoration: none; /* Remove underline from the anchor tag */
+}
+
+
+.button:hover {
+	transform: scale(1.1); /* Increase size on hover */
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+	color: white; /* Change text color to white on hover */
+}
+
+.delete-button:hover {
+	text-decoration: none;
+}
 .container {
 	position: absolute;
 	top: 120px;
@@ -64,6 +97,7 @@ th, td {
 				<th>Alumni Email</th>
 				<th>Batch Name</th>
 				<th>Batch ID</th>
+				<th>Report Card</th>
 			</tr>
 			<c:forEach var="student" items="${students}">
 				<tr>
@@ -72,6 +106,11 @@ th, td {
 					<td>${student.email}</td>
 					<td>${student.batchName}</td>
 					<td>${student.batchId}</td>
+					<td>
+					 <a href="ReportCardServlet?studentId=<c:out value='${student.id}' />"
+					    class="button delete-button"> <i
+					    class="fa fa-file button-icon"></i>Report Card
+				</a></td>
 				</tr>
 			</c:forEach>
 		</table>

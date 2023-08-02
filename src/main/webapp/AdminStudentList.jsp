@@ -17,7 +17,7 @@ table {
 
 th, td {
 	text-align: left;
-	padding: 8px;
+	padding: 1px;
 }
 
 th {
@@ -174,6 +174,20 @@ h2 {
 	text-decoration: none;
 }
 
+.report-button {
+	display: inline-block;
+	background-color: #434445; /* Redish color */
+	color: white;
+	padding: 6px 8px;
+	margin-top:5px;
+	border-radius: 5px;
+	cursor: pointer;
+	text-decoration: none; /* Remove underline from the anchor tag */
+}
+.report-button:hover {
+	text-decoration: none;
+}
+
 </style>
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -204,7 +218,6 @@ h2 {
 			<th>Batch Name</th>
 			<th>Faculty Name</th>
 			<th>Course</th>
-
 			<th>Course Fees</th>
 			<th>Paid Fees</th>
 			<th>Unpaid Fees</th>
@@ -252,7 +265,13 @@ h2 {
 				</a> <a href="delete?id=<c:out value='${user.id}' />"
 					class="button delete-button"> <i
 						class="fa fa-trash button-icon"></i>Delete
-				</a></td>
+				</a>
+					<a
+					href="ReportCardServlet?studentId=${user.id}"
+					class="button report-button"> <i class="fa fa-file button-icon"></i>Report
+					Card
+				</a>
+				</td>
 			</tr>
 		</c:forEach>
 		</tbody>
@@ -261,7 +280,7 @@ h2 {
 		<!-- Pagination buttons go here, generated dynamically using JavaScript -->
 	</div>
 	<script>
-	 const itemsPerPage = 5; // Number of items to display per page
+	 const itemsPerPage = 6; // Number of items to display per page
 	  const tableRows = document.querySelectorAll(".table-row");
 	  const paginationContainer = document.querySelector(".pagination");
 

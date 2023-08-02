@@ -154,6 +154,40 @@ body {
 .red-text {
 	color: red;
 }
+
+.button {
+	display: inline-block;
+	padding: 6px 10px;
+	border-radius: 5px;
+	cursor: pointer;
+	text-decoration: none;
+	transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.button-icon {
+	margin-right: 5px;
+}
+
+.delete-button {
+	display: inline-block;
+	background-color: #4287f5; /* Redish color */
+	color: white;
+	padding: 10px 10px;
+	margin-left: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+	text-decoration: none; /* Remove underline from the anchor tag */
+}
+
+.button:hover {
+	transform: scale(1.1); /* Increase size on hover */
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+	color: white; /* Change text color to white on hover */
+}
+
+.delete-button:hover {
+	text-decoration: none;
+}
 </style>
 
 </head>
@@ -248,6 +282,14 @@ body {
 						</strong>
 					</button>
 				</form>
+
+
+				<a
+					href="ReportCardServlet?studentId=<%=session.getAttribute("studentId")%>"
+					class="button delete-button"> <i class="fa fa-file button-icon"></i>Report
+					Card
+				</a>
+
 			</div>
 
 			<div class="additional-info">
