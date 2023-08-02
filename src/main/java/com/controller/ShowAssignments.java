@@ -19,9 +19,11 @@ import JwtAuthentication.AuthenticationPoint;
 public class ShowAssignments extends HttpServlet
 {
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		int loggedInFacultyId = (int) request.getSession().getAttribute("facultyId");
+		int batchid = (int) request.getSession().getAttribute("batchId");
+		int stdid = (int) request.getSession().getAttribute("studentId");
+
 		StudentDao sdao = null;
 		HttpSession session = request.getSession();
 
@@ -39,7 +41,7 @@ public class ShowAssignments extends HttpServlet
 				System.out.println(e);
 			}
 
-			ResultSet result = sdao.show_Assignment(loggedInFacultyId);
+			ResultSet result = sdao.show_Assignment(batchid,stdid);
 
 			session.setAttribute("assignments", result);
 			request.setAttribute("assignments", result);

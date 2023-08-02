@@ -33,7 +33,6 @@ public class StudentDao
 			String insertData = "INSERT INTO user (email,password,username,fullname,phone,city,age,course,img) VALUES (?,?,?,?,?,?,?,?,?)";
 			PreparedStatement pstmt = con.prepareStatement(insertData);
 
-			
 			pstmt.setString(1, users.getEmail());
 			pstmt.setString(2, users.getPassword());
 			pstmt.setString(3, users.getUsername());
@@ -124,18 +123,23 @@ public class StudentDao
 	    return rowUpdated;
 	}
 
-	public ResultSet show_Assignment(int loggedInFacultyId)
+	public ResultSet show_Assignment(int batchid, int stdId)
 	{
 		ResultSet assignments = null;
 		try
 		{
-			String query1 = "SELECT a.*, f.faculty_name, b.batch_name " + "FROM assignments a "
-					+ "JOIN faculty f ON a.faculty_id = f.faculty_id " + "JOIN batch b ON a.batch_id = b.batch_id "
-					+ "WHERE a.faculty_id = ?";
+			String query = "SELECT a.*, f.faculty_name, b.batch_name, s.* " +
+		               "FROM assignments a " +
+		               "JOIN faculty f ON a.faculty_id = f.faculty_id " +
+		               "JOIN batch b ON a.batch_id = b.batch_id " +
+		               "LEFT JOIN submission s ON a.assignment_id = s.assignment_id AND s.std_id = ? " +
+		               "WHERE a.batch_id = ?";
 
-			String query = "SELECT * FROM assignments WHERE faculty_id = ?";
-			PreparedStatement statement = con.prepareStatement(query1);
-			statement.setInt(1, loggedInFacultyId);
+
+			PreparedStatement statement = con.prepareStatement(query);
+			statement.setInt(1, stdId);
+			statement.setInt(2, batchid);
+
 			assignments = statement.executeQuery();
 			return assignments;
 

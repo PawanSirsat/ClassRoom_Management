@@ -72,7 +72,7 @@
 .messages-wrapper {
 	border: 20px solid #ccc;
 	border-radius: 35px;
-	max-height: 510px;
+	max-height: 450px;
 	margin-top: 20px;
 	width: 1200px;
 	overflow: auto;

@@ -235,7 +235,7 @@ button {
 				</button>
 			</form>
 
-			<form action="showAssignmentStd" method="post"
+			<form action="showAssignmentStd" method="get"
 				class="assignment-button">
 				<button class="assignment-button" type="submit">
 					<i class="fa-solid fa-book"></i> Assignments
