@@ -15,6 +15,13 @@ public class Faculty
 		this.facultyUserName = facultyUserName;
 	}
 	
+	@Override
+	public String toString()
+	{
+		return "Faculty [facultyID=" + facultyID + ", facultyName=" + facultyName + ", facultyUserName="
+				+ facultyUserName + ", facultyPassword=" + facultyPassword + "]";
+	}
+
 	public String getFacultyPassword()
 	{
 		return facultyPassword;

@@ -9,6 +9,7 @@ import java.util.Base64;
 import java.util.List;
 
 import com.pojo.Batch;
+import com.pojo.Course;
 import com.pojo.Faculty;
 import com.pojo.Student;
 
@@ -31,6 +32,28 @@ public class AdminDao
 			pstmt.setString(1, facultyname);
 			pstmt.setString(2, facultyUserName);
 			pstmt.setString(3, facultyPassword);
+			pstmt.executeUpdate();
+			System.out.println("Data Inserted");
+			return true;
+		}
+
+		catch (Exception e)
+		{
+			System.out.println("Data Not Inserted");
+			System.out.println(e);
+			return false;
+		}
+	}
+
+	public boolean addCourse(String name, int fees)
+	{
+		try
+		{
+			String insertData = "INSERT INTO courses (course_name,fees_structure) VALUES (?,?)";
+			PreparedStatement pstmt = con.prepareStatement(insertData);
+
+			pstmt.setString(1, name);
+			pstmt.setInt(2, fees);
 			pstmt.executeUpdate();
 			System.out.println("Data Inserted");
 			return true;
@@ -159,6 +182,34 @@ public class AdminDao
 		return al;
 	}
 
+	public List<Course> allCourses()
+	{
+		System.out.println("AllCourses");
+		ArrayList<Course> al = new ArrayList<Course>();
+		try
+		{
+			String sql = "SELECT * FROM courses";
+			PreparedStatement statement = con.prepareStatement(sql);
+			ResultSet resultSet = statement.executeQuery();
+
+			while (resultSet.next())
+			{
+				int CourseId = resultSet.getInt("course_id");
+				String CourseName = resultSet.getString("course_name");
+				int CourseFees = resultSet.getInt("fees_structure");
+
+				Course addFaculty = new Course(CourseId, CourseName, CourseFees);
+
+				al.add(addFaculty);
+			}
+			return al;
+		} catch (Exception e)
+		{
+			System.out.println(e);
+		}
+		return al;
+	}
+
 	public boolean add_batch(String batchName, int batchYearINT, String course, int facultyInt)
 	{
 		boolean rowAdded = false;
@@ -214,19 +265,12 @@ public class AdminDao
 		try
 		{
 			String sql = "SELECT * FROM user";
-		
-			String query = "SELECT " +
-		               "c.fees_structure AS course_fees, " +
-		               "COALESCE(SUM(p.paid_fees), 0) AS paid_fees, " +
-		               "c.fees_structure - COALESCE(SUM(p.paid_fees), 0) AS remaining_fees " +
-		               "FROM " +
-		               "user u " +
-		               "LEFT JOIN Payments p ON u.id = p.user_id " +
-		               "INNER JOIN Courses c ON c.course_id = p.course_id " +
-		               "WHERE " +
-		               "u.id = ? " +
-		               "GROUP BY " +
-		               "c.fees_structure";
+
+			String query = "SELECT " + "c.fees_structure AS course_fees, "
+					+ "COALESCE(SUM(p.paid_fees), 0) AS paid_fees, "
+					+ "c.fees_structure - COALESCE(SUM(p.paid_fees), 0) AS remaining_fees " + "FROM " + "user u "
+					+ "LEFT JOIN Payments p ON u.id = p.user_id " + "INNER JOIN Courses c ON c.course_id = p.course_id "
+					+ "WHERE " + "u.id = ? " + "GROUP BY " + "c.fees_structure";
 
 			String sql1 = "SELECT u.*, b.batch_name, f.faculty_name " + "FROM user u "
 					+ "LEFT JOIN alumni a ON u.id = a.student_id " + "LEFT JOIN batch b ON a.batch_id = b.batch_id "
@@ -262,19 +306,18 @@ public class AdminDao
 //					System.out.println("ID "+id);
 					statement1.setInt(1, id);
 
-
 					ResultSet resultSet1 = statement1.executeQuery();
 
-					while (resultSet1.next()) {
-					    courseFees = resultSet1.getDouble("course_fees");
-					    paidFees = resultSet1.getDouble("paid_fees");
-					    remainingFees = resultSet1.getDouble("remaining_fees");
+					while (resultSet1.next())
+					{
+						courseFees = resultSet1.getDouble("course_fees");
+						paidFees = resultSet1.getDouble("paid_fees");
+						remainingFees = resultSet1.getDouble("remaining_fees");
 					}
-//
-//					System.out.println("C fees: " + courseFees);
-//					System.out.println("P fees: " + paidFees);
-//					System.out.println("R fees: " + remainingFees);
 
+					System.out.println("C fees: " + courseFees);
+					System.out.println("P fees: " + paidFees);
+					System.out.println("R fees: " + remainingFees);
 
 				} catch (Exception e)
 				{
@@ -296,7 +339,7 @@ public class AdminDao
 				}
 
 				Student users = new Student(id, username, fullname, email, city, mobile, age, course, imagePath,
-						batchName, facultyName, password,courseFees,paidFees,remainingFees);
+						batchName, facultyName, password, courseFees, paidFees, remainingFees);
 				userList.add(users);
 			}
 

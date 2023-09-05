@@ -97,6 +97,8 @@ body {
 	<div id="navbarContainer"></div>
 
 	<script>
+	
+	
 function validateForm() {
     var username = document.getElementById("username").value;
     var fullname = document.getElementById("fullname").value;
@@ -178,6 +180,9 @@ function validateForm() {
     alert("Sign Up Successful");
     return true;
 }
+
+
+
 
   // Fetch the navbar content
 fetch('/FirstWeb2/WelcomeNavBar.jsp')
@@ -279,6 +284,32 @@ fetch('/FirstWeb2/WelcomeNavBar.jsp')
 		</form>
 
 	</div>
+	
+<script>
+  const mobileInput = document.getElementById('mobile');
+
+  mobileInput.addEventListener('input', () => {
+    const mobileValue = mobileInput.value.trim();
+    if (mobileValue.length < 10 || mobileValue.length > 12) {
+      mobileInput.setCustomValidity('Mobile number must be Between 10 digit and 12 digit .');
+    } else {
+      mobileInput.setCustomValidity('');
+    }
+  });
+</script>
+
+<script>
+  const ageInput = document.getElementById('age');
+
+  ageInput.addEventListener('input', () => {
+    const ageValue = parseInt(ageInput.value, 10); // Parse the input value as an integer
+    if (isNaN(ageValue) || ageValue <= 18 || ageValue >= 60) {
+      ageInput.setCustomValidity('Age must be above 18 and under 60.');
+    } else {
+      ageInput.setCustomValidity('');
+    }
+  });
+</script>
 
 </body>
 </html>

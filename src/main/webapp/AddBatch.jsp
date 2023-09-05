@@ -113,6 +113,7 @@
 				facultyInput.disabled = false;
 			}
 		}
+		
 	</script>
 
 	<div id="adminnavbar"></div>
@@ -133,12 +134,11 @@
 
 			<div class="form-row">
 				<div class="form-group">
-					<select class="form-input" id="course" name="course">
+					<select  class="form-input" id="course" name="course">
 						<option value="">Select Course</option>
-						<option value="Full Stack">Full Stack</option>
-						<option value="Java Developer">Java Developer</option>
-						<option value="Angular">Angular</option>
-						<option value="python">Python</option>
+						<c:forEach var="name" items="${courseList}">
+							<option value="${name.courseName}">${name.courseName} &#8377; ${name.courseFees}</option>
+						</c:forEach>
 					</select>
 				</div>
 			</div>

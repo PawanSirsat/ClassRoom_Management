@@ -13,6 +13,7 @@ public class CodeGenerator
 
 	public String Generator(String sc)
 	{
+	
 		String user = sc;
 		char[] user_char = user.toCharArray();
 		StringBuffer sb = new StringBuffer();

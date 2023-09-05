@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.dao.AdminDao;
+import com.pojo.Course;
 import com.pojo.Faculty;
 import com.sql.JDBC;
 
@@ -23,16 +24,22 @@ public class FacultyName extends HttpServlet
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		AdminDao adm = null;
+		
 		try
 		{
 			String callingPage = request.getParameter("callingPage");
 
 			adm = new AdminDao(JDBC.getConnection());
+			
 			List<Faculty> allfaculty = adm.allfaculty();
-
+			List<Course> allCourse = adm.allCourses();
+			
 			HttpSession session = request.getSession();
 			session.setAttribute("facultyList", allfaculty);
 			request.setAttribute("facultyList", allfaculty);
+			
+			session.setAttribute("courseList", allCourse);
+			request.setAttribute("courseList", allCourse);
 			
 			if (callingPage != null && callingPage.equals("faculty1"))
 			{

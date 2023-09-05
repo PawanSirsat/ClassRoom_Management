@@ -154,6 +154,17 @@ body {
 
 .stats-container {
 	margin-bottom: 15px;
+	 max-height: 200px; /* Adjust the maximum height as needed */
+    overflow-y: auto;
+}
+
+.stats-container1 {
+	margin-bottom: 15px;
+	 max-height: 200px; /* Adjust the maximum height as needed */
+    overflow-y: auto;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.80);
 }
 
 .stats-container label {
@@ -164,7 +175,6 @@ body {
 	width: 200px;
 	height: 20px;
 	background-color: #f2f2f2;
-	border-radius: 5px;
 	overflow: hidden;
 }
 
@@ -189,10 +199,42 @@ body {
 	padding: 0 8px;
 }
 
+::-webkit-scrollbar {
+	width: 8px;
+	background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #888;
+	border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background-color: #555;
+}
+/* WebKit Scrollbar Styling (Chrome, Safari, Opera) */
+.table-container::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Track background color */
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background-color: #888; /* Scrollbar thumb color */
+    border-radius: 6px; /* Rounded corners on the thumb */
+    border: 1px solid #f1f1f1; /* Border around the thumb */
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Thumb color on hover */
+}
+
+
 table {
 	border-collapse: separate;
 	border-spacing: 0;
-	border-radius: 10px;
 	box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.80);
 }
 
@@ -204,7 +246,10 @@ th, td {
 th {
 	background-color: #4CAF50;
 	color: white;
+	position: sticky;
+	top: 0; /* Stick the header to the top of the container */	
 }
+
 
 .collected-fees {
 	padding-top: 10px;
@@ -347,7 +392,7 @@ th {
 		</div>
 
 		<div class="profile-info1">
-			<div class="stats-container">
+			<div class="stats-container1">
 				<table>
 					<tr>
 						<th>Course Name</th>
@@ -356,25 +401,26 @@ th {
 						<th>Pending Fees</th>
 					</tr>
 					<%-- Iterate through the courseFeesList attribute --%>
-					<c:forEach items="${courseFeesList}" var="courseFees">
-						<tr>
-							<td><strong class="cname ">${courseFees.course_name}</strong></td>
-							<td><strong class="total-fees formattedOutput">${courseFees.total_fees}</strong></td>
-							<td><strong class="collected-fees formattedOutput">
-									${courseFees.total_paidfees}</strong></td>
-							<td><strong class="pending-fees formattedOutput">
-									${courseFees.total_unpaidfees}</strong></td>
-						</tr>
-					</c:forEach>
+						<c:forEach items="${courseFeesList}" var="courseFees">
+							<tr>
+								<td><strong class="cname ">${courseFees.course_name}</strong></td>
+								<td><strong class="total-fees formattedOutput">${courseFees.total_fees}</strong></td>
+								<td><strong class="collected-fees formattedOutput">
+										${courseFees.total_paidfees}</strong></td>
+								<td><strong class="pending-fees formattedOutput">
+										${courseFees.total_unpaidfees}</strong></td>
+							</tr>
+						</c:forEach>
 				</table>
-
+	
+			</div>
+			
 				<h3 class="boldword">
 					Amount Collected : <strong class="collected-fees formattedOutput"><%=session.getAttribute("totalcollected")%></strong>
 				</h3>
 				<h3 class="boldword">
 					Amount Pending &nbsp;&nbsp;: <strong class="pending-fees formattedOutput"><%=session.getAttribute("totalpending")%></strong>
-				</h3>	
-			</div>
+				</h3>
 		</div>
 	</div>
 	<script>

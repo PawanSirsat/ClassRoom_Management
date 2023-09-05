@@ -8,30 +8,155 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>User List</title>
+<title>Batch List</title>
 <style>
 table {
 	border-collapse: collapse;
 	width: 100%;
 }
-.user-photo {
-    width: 100px; /* Adjust the width as per your requirement */
-    height: 100px;
-    border-radius:10px; /* Maintain the aspect ratio */
-}
+
 th, td {
 	text-align: left;
-	padding: 8px;
+	padding: 1px;
 }
 
 th {
-	background-color: #4CAF50;
+	background-color: #5c5e5e;
 	color: white;
+	position: sticky;
+	top: 0;
 }
 
 tr:nth-child(even) {
 	background-color: #f2f2f2;
 }
+
+.user-photo {
+	width: 100px;
+	height: 70px;
+	border-radius: 10px;
+}
+
+h2 {
+	text-align: center;
+}
+
+.collected-fees {
+	padding-top: 10px;
+	color: #4CAF50;
+	font-weight: bold;
+}
+
+.course-fees {
+	padding-top: 10px;
+	color: #5c5e5e;
+	font-weight: bold;
+}
+
+.pending-fees {
+	padding-top: 5px;
+	color: #FF5722;
+	font-weight: bold;
+}
+
+.edit-button {
+	display: inline-block;
+	background-color: #08ABEA;
+	color: white;
+	padding: 6px 10px;
+	border-radius: 5px;
+	cursor: pointer;
+	text-decoration: none; /* Remove underline from the anchor tag */
+}
+
+/* Styling for the icon */
+.edit-icon {
+	margin-right: 5px;
+}
+
+.delete-button {
+	display: inline-block;
+	background-color: #ff6666; /* Redish color */
+	color: white;
+	padding: 6px 10px;
+	border-radius: 5px;
+	cursor: pointer;
+	text-decoration: none; /* Remove underline from the anchor tag */
+}
+
+.button {
+	display: inline-block;
+	padding: 6px 10px;
+	border-radius: 5px;
+	cursor: pointer;
+	text-decoration: none;
+	transition: transform 0.2s, box-shadow 0.2s;
+}
+.button-icon {
+	margin-right: 5px;
+}
+
+.button:hover {
+	transform: scale(1.1); /* Increase size on hover */
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+	color: white; /* Change text color to white on hover */
+}
+/* Remove underline on hover */
+.edit-button:hover, .delete-button:hover {
+	text-decoration: none;
+}
+
+.full-name {
+	font-weight: bold;
+	color: #5c5e5e; /* Blue color */
+}
+
+.student-name {
+	font-weight: 500;
+	color: #08ABEA; /* Green color */
+}
+
+.faculty-name {
+	font-weight: 500;
+	color: #08ABEA; /* Orange color */
+}
+
+/* Styling for the pagination buttons */
+.pagination-button {
+	background-color: #08ABEA; /* Blue color */
+	color: white;
+	margin-right: 8px;
+	border:none;
+}
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+.pagination-button:hover {
+	background-color: #004c99; /* Darken the color on hover */
+}
+
+/* Hide all rows by default */
+.table-row {
+	display: none;
+}
+
+/* Show the rows for the selected page */
+.table-row.page-active {
+	display: table-row;
+}
+.heading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
 </style>
 </head>
 <body>
@@ -51,11 +176,9 @@ tr:nth-child(even) {
 	<h2>
 		Batch Name :
 		<%=session.getAttribute("batchname")%></h2>
+	
 	<h2>
-		Batch Year :
-		<%=session.getAttribute("batchyear")%></h2>
-	<h2>
-		Batch Faculty :
+		 Faculty Name :
 		<%=session.getAttribute("batchteacher")%></h2>
 
 

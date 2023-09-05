@@ -46,6 +46,18 @@ body {
 	object-fit: cover;
 	border: 5px solid #ffffff;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	overflow: hidden;
+}
+
+.profile-image img {
+	transition: all ease 1s;
+	height:100%;
+	width:100%;
+	object-fit:cover;
+}
+
+.profile-image:hover img {
+	transform: scale(1.2);
 }
 
 .profile-info {
@@ -213,8 +225,10 @@ body {
 		}
 		%>
 		<img class="cover-photo" src="Images/cover.png" alt="Cover Photo">
-		<img class="profile-image"
-			src="data:image/jpeg;base64, <%=base64Image%>" alt="Student Image">
+		<div class="profile-image">
+			<img src="data:image/jpeg;base64, <%=base64Image%>"
+				alt="Student Image">
+		</div>
 
 		<div class="name-container">
 			<h2 class="name"><%=session.getAttribute("fullname")%></h2>

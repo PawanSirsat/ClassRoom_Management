@@ -70,10 +70,10 @@
 	border: none;
 	text-decoration: none;
 	cursor: pointer;
+	margin: 10px;
 	font-weight: bold;
 	border-radius: 25px;
-		margin-left: 10px;
-	
+	margin-left: 20px;
 }
 
 .navbar-brand {
@@ -125,6 +125,7 @@
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
 	crossorigin="anonymous">
 
+
 </head>
 <body>
 
@@ -143,7 +144,7 @@
 					<li class="nav-item">
 						<form action="allStudent" method="post">
 							<button class="challenge-button" type="submit">
-								<i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;All
+								<i class="fa fa-user" aria-hidden="true"></i>&nbsp;
 								Student
 							</button>
 						</form>
@@ -153,7 +154,7 @@
 						<form action="allbatchname" method="get">
 							<input type="hidden" name="callingPage" value="page2">
 							<button class="message-button" type="submit">
-								<i class="fa-solid fa-message fa-beat"></i>&nbsp;&nbsp;All
+								<i class="fa-solid fa-message fa-beat"></i>&nbsp;
 								Messages
 							</button>
 						</form>
@@ -163,7 +164,7 @@
 						<form action="facultyname" method="get">
 							<input type="hidden" name="callingPage" value="faculty1">
 							<button class="assignment-button" type="submit">
-								<i class="fa-solid fa-plus"></i>&nbsp;&nbsp;Add Batch
+								<i class="fa-solid fa-plus"></i>Add Batch
 							</button>
 						</form>
 					</li>
@@ -172,10 +173,16 @@
 						<form action="allbatchname" method="get">
 							<input type="hidden" name="callingPage" value="page1">
 							<button class="assignment-button" type="submit">
-								<i class="fa-solid fa-plus"></i>&nbsp;&nbsp;Add Alumni
+								<i class="fa-solid fa-plus"></i>Add Alumni
 							</button>
 						</form>
 					</li>
+					
+					<li class="nav-item"><a href="AddCourse.jsp">
+							<button class="assignment-button" type="submit">
+								<i class="fa-solid fa-plus"></i>Add Course
+							</button>
+					</a></li>
 
 					<li class="nav-item"><a href="AddFaculty.jsp">
 							<button class="assignment-button" type="submit">
@@ -186,14 +193,14 @@
 						<form action="facultyname" method="get">
 							<input type="hidden" name="callingPage" value="faculty2">
 							<button class="list-button" type="submit">
-								<i class="fa fa-list"></i>&nbsp;&nbsp;All Faculty
+								<i class="fa fa-list"></i>&nbsp;&nbsp; Faculty
 							</button>
 						</form>
 					</li>
 					<li class="nav-item">
 						<form action="allTransaction" method="get">
 							<button class="list-button" type="submit">
-								<i class="fa fa-list"></i>&nbsp;&nbsp;All Transactions
+								<i class="fa fa-list"></i>&nbsp;&nbsp; Transactions
 							</button>
 						</form>
 					</li>
@@ -201,13 +208,13 @@
 						<form action="allbatchname" method="get">
 							<input type="hidden" name="callingPage" value="page3">
 							<button class="list-button" type="submit">
-								<i class="fa fa-list"></i>&nbsp;&nbsp;All Batch
+								<i class="fa fa-list"></i>&nbsp;&nbsp;Batches
 							</button>
 						</form>
 					</li>
 
 					<li class="nav-item">
-						<form action="logout" method="post" class="signout-button">
+						<form action="logout" method="post">
 							<button type="submit" class="signout-button">
 								<i class="fa-solid fa-right-from-bracket fa-beat-fade"></i>
 								Logout

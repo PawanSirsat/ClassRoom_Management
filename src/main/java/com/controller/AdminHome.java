@@ -22,6 +22,10 @@ import JwtAuthentication.AuthenticationPoint;
 @WebServlet("/adminHome")
 public class AdminHome extends HttpServlet
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	AdminDao adao;
 	PaymentDao pdao = null;
 
@@ -57,7 +61,6 @@ public class AdminHome extends HttpServlet
 				session.setAttribute("totalfees",payments2.getTotal_fees() );
 				session.setAttribute("totalcollected", payments2.getPaid_fees());
 				session.setAttribute("totalpending", payments2.getUnpaid_fees());
-
 				
 				request.getRequestDispatcher("AdminProfile.jsp").forward(request, response);
 			} else

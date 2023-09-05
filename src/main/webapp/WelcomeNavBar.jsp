@@ -10,6 +10,7 @@ body {
 	margin: 0;
 }
 
+
 .navbar {
 	z-index: 2;
 	background-color: rgb(33, 37, 41);
@@ -24,7 +25,7 @@ body {
 .navbar-brand {
 	font-size: 80px;
 	font-weight: bold;
-font-family: 'Lexend Mega', sans-serif;
+    font-family: 'Lexend Mega', sans-serif;
 	color: #4CAF50;
 }
 
@@ -109,8 +110,20 @@ button {
 	height: 50px;
 	border-radius: 50%;
 	object-fit: cover;
+	overflow: hidden;
+	
 }
 
+.profile-image2 img {
+	transition: all ease 1s;
+	height:100%;
+	width:100%;
+	object-fit:cover;
+}
+
+.profile-image2:hover img {
+	transform: scale(1.2);
+}
 .bt1 {
 	margin-right: 10px;
 }
@@ -192,6 +205,10 @@ button {
 	border-radius: 25px;
 	margin-left: auto;
 }
+
+
+  
+
 </style>
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,500,0,0" />
@@ -271,8 +288,11 @@ button {
  if (imageBytes != null) {
  	base64Image = java.util.Base64.getEncoder().encodeToString(imageBytes);
  }
- %> <img class="profile-image2"
-					src="data:image/jpeg;base64, <%=base64Image%>" alt="Student Image">
+ %>
+ <div class="profile-image2">
+			  <img src="data:image/jpeg;base64, <%=base64Image%>" alt="Student Image">
+		</div>
+
 					<strong class="d-none d-sm-block ms-1 non">&nbsp;&nbsp;<%=request.getSession().getAttribute("fullname")%></strong>
 				</a>
 			</div>
