@@ -21,14 +21,10 @@ public class AddCourse extends HttpServlet
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
 	{
 
-
 		String CourseName = req.getParameter("coursename");
 		String courseFeesString = req.getParameter("coursefees");
 		courseFeesString = courseFeesString.replaceAll(",", ""); // Remove commas
 		int courseFees = Integer.parseInt(courseFeesString);
-
-		
-		
 
 		AdminDao adao;
 

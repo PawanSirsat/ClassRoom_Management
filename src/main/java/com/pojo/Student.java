@@ -12,7 +12,20 @@ public class Student implements Serializable
 	private String phone ;
 	private String age ;
 	private String course ;
+	private int stdCount;
 	
+	
+
+	public int getStdCount()
+	{
+		return stdCount;
+	}
+
+	public void setStdCount(int stdCount)
+	{
+		this.stdCount = stdCount;
+	}
+
 	private int intage;
 	private int intphone;
 	
@@ -210,6 +223,17 @@ public class Student implements Serializable
 		Password = password;
 	}
 
+
+	public Student(int id, String batchName, String facultyName, String batchcourse, int batchyear, double coursefees)
+	{
+		super();
+		this.id = id;
+		this.batchName = batchName;
+		this.facultyName = facultyName;
+		this.batchcourse = batchcourse;
+		this.batchyear = batchyear;
+		this.coursefees = coursefees;
+	}
 
 	public String getPassword()
 	{

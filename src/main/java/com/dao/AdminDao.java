@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
@@ -80,6 +81,20 @@ public class AdminDao
 		}
 		return count;
 	}
+	
+	public int countCourse() throws SQLException
+	{
+		int count = 0;
+		String query = "SELECT COUNT(*) FROM courses";
+		try (PreparedStatement statement = con.prepareStatement(query); ResultSet resultSet = statement.executeQuery())
+		{
+			if (resultSet.next())
+			{
+				count = resultSet.getInt(1);
+			}
+		}
+		return count;
+	}
 
 	public int countFaculty() throws SQLException
 	{
@@ -140,6 +155,7 @@ public class AdminDao
 			PreparedStatement statement = con.prepareStatement(sql);
 			ResultSet resultSet = statement.executeQuery();
 
+			Batch batch = new Batch();
 			while (resultSet.next())
 			{
 				int batchId = resultSet.getInt("batch_id");
@@ -153,6 +169,74 @@ public class AdminDao
 			e.printStackTrace();
 		}
 		return allbatch;
+	}
+
+	public List<Student> BatchInfo()
+	{
+		ArrayList<Student> batchinfo = new ArrayList<Student>();
+
+		try
+		{
+			 String query = "SELECT b.batch_id, b.batch_name, f.faculty_name, c.course_name, c.fees_structure, b.batch_year, COUNT(a.batch_id) AS Count_Batch " +
+                     "FROM batch b " +
+                     "LEFT JOIN faculty f ON b.faculty_id = f.faculty_id " +
+                     "LEFT JOIN courses c ON b.batch_course = c.course_name " +
+                     "LEFT JOIN alumni a ON b.batch_id = a.batch_id " +
+                     "GROUP BY b.batch_id, b.batch_name, f.faculty_name, c.course_name, c.fees_structure, b.batch_year;";
+
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(query);
+
+			List<Batch> batchList = new ArrayList<>();
+
+			while (rs.next())
+			{
+				Student batch = new Student();
+				batch.setBatchId(rs.getInt("batch_id"));
+				batch.setBatchName(rs.getString("batch_name"));
+				batch.setFacultyName(rs.getString("faculty_name"));
+				batch.setBatchcourse(rs.getString("course_name"));
+				batch.setCoursefees(rs.getInt("fees_structure"));
+				batch.setBatchyear(rs.getInt("batch_year"));
+				batch.setStdCount(rs.getInt("Count_Batch"));
+
+				batchinfo.add(batch);
+			}
+		} catch (Exception e)
+		{
+			// TODO: handle exception
+		}
+		return batchinfo;
+
+	}
+	
+	public List<Student> StudentInfo()
+	{
+		ArrayList<Student> stdinfo = new ArrayList<Student>();
+
+		try
+		{
+			String query = "SELECT id, fullname ,course " +
+		               "FROM user " +
+		               "WHERE id NOT IN (SELECT student_id FROM alumni);";
+
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(query);
+
+			while (rs.next())
+			{
+				Student batch = new Student();
+				batch.setId(rs.getInt("id"));
+				batch.setFullName(rs.getString("fullname"));
+				batch.setCourse(rs.getString("course"));
+
+				stdinfo.add(batch);
+			}
+		} catch (Exception e)
+		{
+System.out.println(e);
+		}
+		return stdinfo;
 	}
 
 	public List<Faculty> allfaculty()
@@ -315,9 +399,9 @@ public class AdminDao
 						remainingFees = resultSet1.getDouble("remaining_fees");
 					}
 
-					System.out.println("C fees: " + courseFees);
-					System.out.println("P fees: " + paidFees);
-					System.out.println("R fees: " + remainingFees);
+//					System.out.println("C fees: " + courseFees);
+//					System.out.println("P fees: " + paidFees);
+//					System.out.println("R fees: " + remainingFees);
 
 				} catch (Exception e)
 				{

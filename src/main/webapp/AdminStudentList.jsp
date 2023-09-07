@@ -32,9 +32,9 @@ tr:nth-child(even) {
 }
 
 .user-photo {
-	width: 100px;
-	height: 70px;
-	border-radius: 10px;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
 }
 
 h2 {
@@ -256,7 +256,7 @@ h2 {
 						</c:when>
 
 						<c:otherwise>
-                            No image available
+							<img src="Images/user.png" alt="User Photo" class="user-photo" />
                         </c:otherwise>
 
 					</c:choose></td>

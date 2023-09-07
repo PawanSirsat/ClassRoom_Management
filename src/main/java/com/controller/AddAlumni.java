@@ -24,6 +24,9 @@ public class AddAlumni extends HttpServlet {
 
         String studentId = req.getParameter("studentid");
         int studentIdInt = Integer.parseInt(studentId);
+        
+        String batch = req.getParameter("batch");
+
 
         PrintWriter pw = res.getWriter();
 
@@ -48,11 +51,11 @@ public class AddAlumni extends HttpServlet {
                 pstmtAlumni.executeUpdate();
 
                 // Find the course ID based on the user ID in the Users table
-                String findCourseIdQuery = "SELECT c.course_id FROM user u " +
-                        "INNER JOIN courses c ON u.course = c.course_name " +
-                        "WHERE u.id = ?";
+                String findCourseIdQuery = "SELECT c.course_id FROM batch b " +
+                        "INNER JOIN courses c ON b.batch_course = c.course_name " +
+                        " WHERE batch_id = ?";
                 PreparedStatement pstmtFindCourseId = con.prepareStatement(findCourseIdQuery);
-                pstmtFindCourseId.setString(1, studentId);
+                pstmtFindCourseId.setString(1, batchID);
                 ResultSet rs = pstmtFindCourseId.executeQuery();
 
                 int courseId = 0;

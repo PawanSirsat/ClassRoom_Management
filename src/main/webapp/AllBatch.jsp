@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="com.pojo.Student"%>
+<%@ page import="java.util.List"%>
 
 <!DOCTYPE html>
 <html>
@@ -6,14 +8,24 @@
 <title>Student Information</title>
 <style>
 .signup-container {
-	width: 450px;
-	top: 100px;
-	position: absolute;
-	left: 500px;
-	padding: 40px;
-	background-color: white;
-	border-radius: 8px;
-	box-shadow: 0 8px 12px 5px rgba(0, 0, 0, 0.6);
+    width: 256px;
+    top: 85px;
+    position: absolute;
+    left: 950px;
+    background-color: white;
+    border-radius: 8px;
+    padding: -13px; /* Add some padding to the container */
+}
+
+
+.inline-container {
+    display: inline-flex; /* Display elements in the same line */
+    vertical-align: middle; /* Align elements vertically in the middle */
+}
+
+select {
+    /* Add any specific styling for the select element if needed */
+    padding: 5px;
 }
 
 .signup-heading {
@@ -24,11 +36,11 @@
 }
 
 .signup-form {
-	display: flex;
 	flex-direction: column;
 }
 
 .form-group {
+    display: inline-block; /* Make the form inline-block to keep elements on the same line */
 	margin-bottom: 20px;
 	margin-left: 20px;
 }
@@ -46,7 +58,7 @@
 }
 
 .form-row {
-	display: flex;
+	display: inline-block;
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
@@ -59,28 +71,34 @@ select {
 }
 
 input[type="submit"] {
-	padding-top: 50px;
-	padding: 10px 20px;
-	background-color: #4CAF50;
-	color: #fff;
-	border: none;
-	cursor: pointer;
+    padding-top: 50px;
+    padding: 5px 19px;
+    margin-left:10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius:20px;
+}
+
+h1 {
+    text-align: center;
 }
 
 table {
-	width: 400px;
-	margin: 20px auto;
-	border-collapse: collapse;
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
 }
 
 th, td {
-	padding: 10px;
-	text-align: left;
-	border-bottom: 1px solid #ddd;
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
 }
 
 th {
-	background-color: #f2f2f2;
+    background-color: #f2f2f2;
 }
 </style>
 <link rel="stylesheet"
@@ -123,31 +141,51 @@ th {
 </script>
 	<div id="adminnavbar"></div>
 	<div class="signup-container">
-		<h2 class="signup-heading">Select Batch</h2>
 		<form class="signup-form" action="showBatch" method="post">
 
 			<div class="form-group">
-				<label for="batchid">Batch:</label> <select name="batchid"
-					id="batchdropdown" onchange="handleFacultySelection()">
-					<option value="">Select Batch</option>
-					<c:forEach var="batch" items="${ShowBatch}">
-						<option value="${batch.batchId}">${batch.batchName}</option>
-					</c:forEach>
-				</select> <br> <br> <input type="submit" value="Submit">
-			</div>
-		</form>
-		<hr>
-		<form class="signup-form" action="showBatch" method="post">
+    <div class="inline-container">
+        <select name="batchid" id="batchdropdown" onchange="handleFacultySelection()">
+            <option value="">Select Batch</option>
+            <c:forEach var="batch" items="${ShowBatch}">
+                <option value="${batch.batchId}">${batch.batchName}</option>
+            </c:forEach>
+        </select>
+        <input type="submit" value="Show">
+    </div>
+</div>
 
-			<div class="form-group">
-				<label for="batchid">Enter Batch ID:</label> <br> <input
-					type="text" name="batchid" id="batchinput"
-					placeholder="Enter Batch Number"> <br> <br> <input
-					type="submit" id="submitBtn" value="Submit">
-			</div>
 		</form>
 	</div>
 
-
+ <h1>Batch Information</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Batch ID</th>
+                <th>Batch Name</th>
+                <th>Batch Faculty</th>
+                <th>Batch Course Name</th>
+                <th>Batch Course Fees</th>
+                <th>Batch Year</th>
+                <th>Student Count</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <% for (Student student : (List<Student>) request.getAttribute("batchInfo")) { %>
+                <tr>
+                    <td><%= student.getBatchId() %></td>
+                    <td><%= student.getBatchName() %></td>
+                    <td><%= student.getFacultyName() %></td>
+                    <td><%= student.getBatchcourse() %></td>
+                    <td><%= student.getCoursefees() %></td>
+                    <td><%= student.getBatchyear() %></td>
+                    <td><%= student.getStdCount() %></td>
+                    
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
 </body>
 </html>

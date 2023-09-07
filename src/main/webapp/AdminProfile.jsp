@@ -302,11 +302,13 @@ th {
 	    	const totalUsers = <%=session.getAttribute("totalUsers")%>;
 	    	const totalFaculty = <%=session.getAttribute("totalFaculty")%>;
 	    	const totalBatches = <%=session.getAttribute("totalBatches")%>;
+	    	const totalCourses = <%=session.getAttribute("totalCourses")%>;
 
 	    	const userPercentage = ((totalUsers / 30) * 100).toFixed(2);
 	        const facultyPercentage = ((totalFaculty / 15) * 100).toFixed(2);
 	        const batchPercentage = ((totalBatches / 20) * 100).toFixed(2);
-	        
+	        const coursePercentage = ((totalCourses / 12) * 100).toFixed(2);
+
 	    	document.getElementById("userProgressBar").style.width = userPercentage + '%';
 	    	userProgressBar.innerText = userPercentage + '%';
 	    	userProgressBar.style.color = 'white';
@@ -326,7 +328,7 @@ th {
 	    	batchProgressBar.style.paddingLeft = '15px';
 	    	
 	    	document.getElementById("courseProgressBar").style.width = 40 + '%';
-	    	courseProgressBar.innerText = 40 + '%';
+	    	courseProgressBar.innerText = coursePercentage + '%';
 	    	courseProgressBar.style.color = 'white';
 	    	courseProgressBar.style.fontWeight = 'bold';
 	    	courseProgressBar.style.paddingLeft = '15px';	
@@ -382,7 +384,7 @@ th {
 			</div>
 			<div class="stats-container">
 				<label><i class="fas fa-book info-icon"></i> Total Courses:
-					5</label>
+				<%=session.getAttribute("totalCourses")%></label>
 				<div class="bar">
 					<div class="progress" id="courseProgressBar">
 						<span></span>

@@ -19,6 +19,10 @@ public class Course
 		this.courseName = courseName;
 		this.courseFees = courseFees;
 	}
+	public Course()
+	{
+		// TODO Auto-generated constructor stub
+	}
 	public int getCourseId()
 	{
 		return courseId;

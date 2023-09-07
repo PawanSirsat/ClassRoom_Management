@@ -144,8 +144,7 @@
 					<li class="nav-item">
 						<form action="allStudent" method="post">
 							<button class="challenge-button" type="submit">
-								<i class="fa fa-user" aria-hidden="true"></i>&nbsp;
-								Student
+								<i class="fa fa-user" aria-hidden="true"></i>&nbsp; Student
 							</button>
 						</form>
 					</li>
@@ -154,8 +153,7 @@
 						<form action="allbatchname" method="get">
 							<input type="hidden" name="callingPage" value="page2">
 							<button class="message-button" type="submit">
-								<i class="fa-solid fa-message fa-beat"></i>&nbsp;
-								Messages
+								<i class="fa-solid fa-message fa-beat"></i>&nbsp; Messages
 							</button>
 						</form>
 					</li>
@@ -177,12 +175,14 @@
 							</button>
 						</form>
 					</li>
-					
-					<li class="nav-item"><a href="AddCourse.jsp">
+
+					<li class="nav-item">
+						<form action="allCourse" method="get">
 							<button class="assignment-button" type="submit">
 								<i class="fa-solid fa-plus"></i>Add Course
 							</button>
-					</a></li>
+						</form>
+					</li>
 
 					<li class="nav-item"><a href="AddFaculty.jsp">
 							<button class="assignment-button" type="submit">

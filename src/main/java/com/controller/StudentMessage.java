@@ -37,7 +37,7 @@ public class StudentMessage extends HttpServlet
 		
 		session.setAttribute("batchId", batchId);
 
-		System.out.println("\n ___---___\n");
+		System.out.println("\n ___--___\n");
 
 		String token = (String) session.getAttribute("jwtToken");
 		List<Message> messages = new ArrayList<Message>();

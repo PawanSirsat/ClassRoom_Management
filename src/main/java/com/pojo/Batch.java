@@ -10,6 +10,10 @@ public class Batch
 		this.batchName = batchName;
 		this.batchId = batchId;
 	}
+	public Batch()
+	{
+		// TODO Auto-generated constructor stub
+	}
 	public String getBatchName()
 	{
 		return batchName;

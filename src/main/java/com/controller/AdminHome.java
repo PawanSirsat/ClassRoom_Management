@@ -47,9 +47,12 @@ public class AdminHome extends HttpServlet
 				int totalUsers = adao.countUsers();
 				int totalFaculty = adao.countFaculty();
 				int totalBatches = adao.countBatches();
+				int totalCourses = adao.countCourse();
+
 				session.setAttribute("totalUsers", totalUsers);
 				session.setAttribute("totalFaculty", totalFaculty);
 				session.setAttribute("totalBatches", totalBatches);
+				session.setAttribute("totalCourses", totalCourses);
 
 				//all course payments
 				payments = pdao.showPayments();

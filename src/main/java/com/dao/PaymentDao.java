@@ -91,10 +91,10 @@ public class PaymentDao
 				double totalPaidFees = resultSet.getInt("total_paid_fees");
 				double totalUnpaidFees = resultSet.getInt("total_unpaid_fees");
 				
-				System.out.println("Course Name : "+courseName);
-				System.out.println("total fees : "+totalFees);
-				System.out.println("totalpaid fees : "+totalPaidFees);
-				System.out.println("total unpaidfees : "+totalUnpaidFees);
+//				System.out.println("Course Name : "+courseName);
+//				System.out.println("total fees : "+totalFees);
+//				System.out.println("totalpaid fees : "+totalPaidFees);
+//				System.out.println("total unpaidfees : "+totalUnpaidFees);
 
 				Payment courseFees = new Payment(courseName, totalFees, totalPaidFees, totalUnpaidFees);
 				courseFeesList.add(courseFees);
@@ -134,7 +134,7 @@ public class PaymentDao
 
 				payment = new Payment(courseFees, paidFees, unpaidFees);
 				// Use the retrieved values as needed
-				System.out.println("User ID: " + userId);
+				System.out.println("User ID:- " + userId);
 				System.out.println("Course Name: " + courseName);
 				System.out.println("Course Fees: " + courseFees);
 				System.out.println("Paid Fees: " + paidFees);

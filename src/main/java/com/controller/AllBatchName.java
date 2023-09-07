@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import com.dao.AdminDao;
 import com.pojo.Batch;
+import com.pojo.Student;
 import com.sql.JDBC;
 
 import JwtAuthentication.AuthenticationPoint;
@@ -27,6 +28,10 @@ public class AllBatchName extends HttpServlet
 	{
 
 		List<Batch> batchList = new ArrayList<>();
+		
+		List<Student> batchinfo = new ArrayList<>();
+
+		List<Student> studentinfo = new ArrayList<>();
 
 		AdminDao adao;
 
@@ -37,19 +42,26 @@ public class AllBatchName extends HttpServlet
 			try
 			{
 				adao = new AdminDao(JDBC.getConnection());
+				
 				batchList = adao.allBatch();
-
-				request.setAttribute("ShowBatch", batchList);
+				
+				batchinfo = adao.BatchInfo();
+				
+				studentinfo = adao.StudentInfo();
+				
+				request.setAttribute("ShowBatch", batchinfo);
 				String callingPage = request.getParameter("callingPage");
 
 				if (callingPage != null && callingPage.equals("page1"))
 				{
+		            request.setAttribute("studentinfo", studentinfo);
 					request.getRequestDispatcher("AddAlumni.jsp").forward(request, response);
 				} else if (callingPage != null && callingPage.equals("page2"))
 				{
 					request.getRequestDispatcher("Select_Batch_Message.jsp").forward(request, response);
 				} else
 				{
+		            request.setAttribute("batchInfo", batchinfo);
 					request.getRequestDispatcher("AllBatch.jsp").forward(request, response);
 				}
 
