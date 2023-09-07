@@ -61,6 +61,8 @@ facilitates assignment distribution, and promotes seamless communication
  - Add Coding Challenges
  - Student Profile
 
+# MySql Schema (Table Structure and Data)
+- MySql DataBase GDrive You can Import [Link](https://drive.google.com/file/d/15nwaUKrrOcr0p1VurECzuFt9pCInGwre/view?usp=drivesdk)
 
 # SignUp Page
 ![image](https://github.com/PawanSirsat/ClassRoom_Management/assets/48860105/1373f096-3938-4b83-a863-959ae339f156)
@@ -123,6 +125,7 @@ facilitates assignment distribution, and promotes seamless communication
 # Assignments Managements
 ![image](https://github.com/PawanSirsat/ClassRoom_Management/assets/48860105/b822da67-fd85-45b6-8b5a-b4a41829eff2)
 
+- MySql DataBase Table You can Import [Link](https://drive.google.com/file/d/15nwaUKrrOcr0p1VurECzuFt9pCInGwre/view?usp=drivesdk)
 
 
 
