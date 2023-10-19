@@ -9,7 +9,7 @@
 
 - 📫 How to reach me **p1.sirsat1998@gmail.com**
 
-- 📄 Know about my experiences [https://drive.google.com/file/d/1ixx97YVph0IQR_OsCANnKY5_U64W41UR/view?usp=sharing](https://drive.google.com/file/d/1ixx97YVph0IQR_OsCANnKY5_U64W41UR/view?usp=sharing)
+- 📄 Know about my experiences [https://drive.google.com/file/d/1ixx97YVph0IQR_OsCANnKY5_U64W41UR/view?usp=sharing](https://drive.google.com/file/d/1tZU7RQbE5BZfy7GapximKrb7U8EagaSf/view?usp=sharing)
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
