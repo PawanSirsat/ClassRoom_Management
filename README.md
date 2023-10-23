@@ -61,8 +61,23 @@ facilitates assignment distribution, and promotes seamless communication
  - Add Coding Challenges
  - Student Profile
 
-# MySql Schema (Table Structure and Data)
-- MySql DataBase GDrive You can Import [Link](https://drive.google.com/file/d/15nwaUKrrOcr0p1VurECzuFt9pCInGwre/view?usp=drivesdk)
+# MySQL Schema (Table Structure and Data)
+
+You can import the MySQL database schema and data from this Google Drive link: [Download MySQL Database](https://drive.google.com/file/d/15nwaUKrrOcr0p1VurECzuFt9pCInGwre/view?usp=drivesdk).
+
+## Instructions for Importing the Database
+
+1. Download the MySQL database dump file from the provided Google Drive link.
+
+2. Access your MySQL database management tool (e.g., MySQL Workbench, phpMyAdmin, or the command line).
+
+3. Create a new database in your MySQL server where you want to import the data.
+
+4. Use the following command to import the database into your MySQL server:
+
+```bash
+mysql -u username -p database_name < path/to/downloaded/file.sql
+
 
 # SignUp Page
 ![image](https://github.com/PawanSirsat/ClassRoom_Management/assets/48860105/1373f096-3938-4b83-a863-959ae339f156)
