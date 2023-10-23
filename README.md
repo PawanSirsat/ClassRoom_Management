@@ -6,9 +6,10 @@
 <h3 align="left">Know about my experiences 📄</h3>
 <p align="left">
   <a href="https://drive.google.com/file/d/1ixx97YVph0IQR_OsCANnKY5_U64W41UR/view?usp=sharing" target="blank">
-    <img align="center" src="https://example.com/cv-logo.png" alt="CV" height="30" width="30" />
+    <img align="center" src="https://img.icons8.com/ios/452/cv.png" alt="CV" height="30" width="30" />
   </a>
 </p>
+
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
