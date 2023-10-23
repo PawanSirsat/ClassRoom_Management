@@ -11,13 +11,13 @@
 
 
 <h3 align="left">Connect with me:</h3>
-  <a href="mailto:p1.sirsat1998@gmail.com" target="blank">
-<img width="48" height="48" src="https://img.icons8.com/color/48/gmail-new.png" alt="gmail-new"/>  </a>
+ 
 <p align="left">
 <a href="https://twitter.com/sirsat_pawan" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="sirsat_pawan" height="30" width="40" /></a>
 <a href="https://linkedin.com/in/pawan-sirsat-72a0ba174/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="pawan-sirsat-72a0ba174/" height="30" width="40" /></a>
 <a href="https://instagram.com/p1.sirsat?utm_source=qr&igshid=ngexmmi2ytkyzg%3d%3d" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="p1.sirsat?utm_source=qr&igshid=ngexmmi2ytkyzg%3d%3d" height="30" width="40" /></a>
-
+ <a href="mailto:p1.sirsat1998@gmail.com" target="blank">
+<img width="40" height="30" src="https://img.icons8.com/color/48/gmail-new.png" alt="gmail-new"/>  </a>
 </p>
 
 
