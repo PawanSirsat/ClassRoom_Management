@@ -63,7 +63,7 @@ facilitates assignment distribution, and promotes seamless communication
 
 # MySQL Schema (Table Structure and Data)
 
-You can import the MySQL database schema and data from this Google Drive link: [Download MySQL Database](https://drive.google.com/file/d/15nwaUKrrOcr0p1VurECzuFt9pCInGwre/view?usp=drivesdk).
+<a href="https://www.postgresql.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/> </a>You can import the MySQL database schema and data from this Google Drive link: [Download MySQL Database](https://drive.google.com/file/d/15nwaUKrrOcr0p1VurECzuFt9pCInGwre/view?usp=drivesdk).
 
 ## Instructions for Importing the Database
 
@@ -74,9 +74,6 @@ You can import the MySQL database schema and data from this Google Drive link: [
 3. Create a new database in your MySQL server where you want to import the data.
 
 4. Use the following command to import the database into your MySQL server:
-
-```bash
-mysql -u username -p database_name < path/to/downloaded/file.sql
 
 
 # SignUp Page
