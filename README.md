@@ -6,13 +6,13 @@
 <h3 align="left">Know about my experiences 📄</h3>
 <p align="left">
   <a href="https://drive.google.com/file/d/1ixx97YVph0IQR_OsCANnKY5_U64W41UR/view?usp=sharing" target="blank">
-<img width="48" height="48" src="https://img.icons8.com/color/48/contract-job.png" alt="contract-job"/>  </a>
+<img width="30" height="30" src="https://img.icons8.com/color/48/contract-job.png" alt="contract-job"/>  </a>
 </p>
 
 
 <h3 align="left">Connect with me:</h3>
   <a href="mailto:p1.sirsat1998@gmail.com" target="blank">
-<img width="48" height="48" src="https://img.icons8.com/color/48/gmail-new.png" alt="gmail-new"/>  </a>
+<img width="30" height="30" src="https://img.icons8.com/color/48/gmail-new.png" alt="gmail-new"/>  </a>
 
 <p align="left">
 <a href="https://twitter.com/sirsat_pawan" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="sirsat_pawan" height="30" width="40" /></a>
