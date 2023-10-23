@@ -17,7 +17,7 @@
 <a href="https://linkedin.com/in/pawan-sirsat-72a0ba174/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="pawan-sirsat-72a0ba174/" height="30" width="40" /></a>
 <a href="https://instagram.com/p1.sirsat?utm_source=qr&igshid=ngexmmi2ytkyzg%3d%3d" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="p1.sirsat?utm_source=qr&igshid=ngexmmi2ytkyzg%3d%3d" height="30" width="40" /></a>
   <a href="mailto:p1.sirsat1998@gmail.com" target="blank">
-    <img align="center" src="https://img.icons8.com/ios/452/gmail.png" alt="Gmail" height="30" width="30" />
+    <img align="center" src="[https://img.icons8.com/ios/452/gmail.png](https://icons8.com/icon/nQ4dZIRCI0nW/gmail)" alt="Gmail" height="30" width="30" />
   </a>
 </p>
 
