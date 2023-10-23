@@ -16,7 +16,6 @@
 <a href="https://twitter.com/sirsat_pawan" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="sirsat_pawan" height="30" width="40" /></a>
 <a href="https://linkedin.com/in/pawan-sirsat-72a0ba174/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="pawan-sirsat-72a0ba174/" height="30" width="40" /></a>
 <a href="https://instagram.com/p1.sirsat?utm_source=qr&igshid=ngexmmi2ytkyzg%3d%3d" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="p1.sirsat?utm_source=qr&igshid=ngexmmi2ytkyzg%3d%3d" height="30" width="40" /></a>
-<p align="left">
   <a href="mailto:p1.sirsat1998@gmail.com" target="blank">
     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 48 48">
       <path fill="#4caf50" d="M45,16.2l-5,2.75l-5,4.75L35,40h7c1.657,0,3-1.343,3-3V16.2z"></path>
