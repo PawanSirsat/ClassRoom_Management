@@ -1,6 +1,5 @@
 <h1 align="center">Hi 👋, I'm Pawan</h1>
 <h3 align="center">A passionate Full Stack developer from India</h3>
-🔭 **Currently working on:** [Class Room Management System](https://github.com/PawanSirsat/ClassRoom_Management)
 
 <h3 align="left">Connect with me:</h3>
   <a href="mailto:p1.sirsat1998@gmail.com" target="blank">
